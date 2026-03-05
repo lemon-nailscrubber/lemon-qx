@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="zh-CN" translate="no">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#20C1FF">
+  <meta name="哈哈哈" content="哈哈哈">
+  <meta property="og:title" content="齐喜的网站：产品中心">
+  <meta property="og:description" content="齐喜的洗钉机幻想">
+  <meta property="og:image" content="https://nb-qx.top/pic/fyclq.jpg">
+  <meta property="og:url" content="https://nailscrubber.netlify.app/">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#20C1FF">
+  <title>齐喜的网站--产品中心</title>
+  <link rel="manifest" href="/manifest.json">
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="1024x1024" href="/1024.png">
+  <meta name="application-name" content="齐喜的网站">
+  <meta name="msapplication-TileColor" content="#20C1FF">
+  <meta name="msapplication-TileImage" content="/144.png">
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 🚫你违反了用户协议，你不能使用我们的网站。 -->
+  <!-- 🚫你违反了用户协议，你不能使用我们的网站。 -->
+  <!-- 🚫你违反了用户协议，你不能使用我们的网站。 -->
+  <!-- 🚫你违反了用户协议，你不能使用我们的网站。 -->
+  <!-- 🚫你违反了用户协议，你不能使用我们的网站。 -->
+  <link rel="stylesheet" href="./style.css">
+<style>
+.product-info[data-tag]::before {
+  display: inline-block;
+  font-size: 0.85em;
+  padding: 3px 10px;
+  border-radius: 12.5px;
+  margin-right: 6px;
+  margin-bottom: 6;
+  font-weight: bold;
+  content: "";
+}
+
+/* 各种 tag 类型 */
+.product-info[data-tag="hot"]::before {
+  content: "🔥 热销";
+  background: #ffebee;
+  color: #c62828;
+}
+.product-info[data-tag="new"]::before {
+  content: "🆕 新品";
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.product-info[data-tag="HSF"]::before {
+  content: "😆 HSF工厂";
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.product-info[data-tag="wrong"]::before {
+  content: "❌ 已废止";
+  background: #e3a2ad;
+  color: #d51510;
+}
+.product-info[data-tag="Pro"]::before {
+  content: "⭐ Pro";
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.product-info[data-tag="recommend"]::before {
+  content: "⭐ 推荐";
+  background: #f3f5f5;
+  color: #6a1b9a;
+}
+
+/* —————— 免费产品特殊样式 —————— */
+/* 建议用 data-free="true" 来标记免费 */
+.product-info[data-free="true"]::before {
+  content: "🆓 免费体验";
+  background: #e8f5e9;
+  color: #2e7d32;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  font-size: 0.85em;
+  padding: 3px 10px;
+  border-radius: 12.5px;
+  font-weight: bold;
+  display: inline-block;
+}
+</style>
+ </head>
+ <body>
+  <!-- 页面头部 -->
+  <header>
+   <h1>齐喜的网站</h1>
+   <h6>终于进来了，随便看看</h6>
+   <!-- 汉堡菜单按钮 + 下拉 -->
+   <div class="nav-menu-toggle">
+	<div class="hamburger" onclick="this.classList.toggle('active')">
+	 <span></span> <span></span> <span></span>
+	</div>
+	<ul class="nav-dropdown">
+	 <li><a href='/'><strong>首页</strong></a></li>
+	 <li><a href='/product'>产品中心</a></li>
+	 <li><a href="#nailscrubber"><small>洗钉机系列</small></a></li>
+	 <li><a href="#nailliquid"><small>洗钉液系列</small></a></li>
+	 <li><a href="#Alplatescrubber"><small>洗铝液系列</small></a></li>
+	 <li><a href="#Copperpiecescrubber"><small>洗铜液和洗铜机</small></a></li>
+	 <li><a href="#gas"><small>气体相关</small></a></li>
+	 <li><a href="#food&amp;drink"><small>食物与饮料</small></a></li>
+	 <li><a href="#liquidhhhhh"><small>液体处理</small></a></li>
+	 <li><a href="#physics"><small>逆天物理</small></a></li>
+	 <li><a href="#others"><small>其它</small></a></li>
+	 <li><a href="hengdian.html"><strong>恒电虚拟公司</strong></a></li>
+	 <li><a href='/code.html'><strong>兑换码</strong></a></li>
+	 <li><a href='/weather'><strong>天气瞎报</strong></a></li>
+	 <li><a href='https://subway.nb-qx.top/'><strong>虚拟地铁</strong></a></li>
+	 <li><a href='/resources'><strong>资源中心</strong></a></li>
+	 <li><a href='/about'><strong>关于我</strong></a></li>
+	</ul>
+   </div>
+  </header>
+  <!-- 主体内容 -->
+  <main class="container">
+   <!-- 简介 -->
+	<h2>⌬ 产品中心</h2>
+	<p>获取我们的虚拟NOBOOK产品或其更新。</p>   <!-- 产品展示 -->
+   <section>
+	<!-- 洗钉机 -->
+	<h3 class="category-title" id="nailscrubber">洗钉机</h3>
+	<div class="product">
+	 <img loading="lazy" src="./pic/ptkxdj.jpg" alt="普通款洗钉机">
+	 <div class="product-info">
+	  <h3>普通款洗钉机</h3>
+	  <p>普通的洗钉机。起号用的。也是齐喜的第一款洗钉机，可以清洗生锈的钉子，体积小巧，便于使用。不过易碎。</p>
+	  <a href='https://s.nobook.com/?id=195588' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-PhWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/zxkxdj.jpg" alt="锥形款洗钉机">
+	 <div class="product-info">
+	  <h3>锥形款洗钉机</h3>
+	  <p>普通的洗钉机。独特的锥形状，可以容纳更多钉子，但耗水量增大。可以放在陶土网上。</p>
+	  <a href='https://s.nobook.com/?id=195589' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-XhWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/ydkxdj.jpg" alt="圆底款洗钉机">
+	 <div class="product-info">
+	  <h3>圆底款洗钉机</h3>
+	  <p>进阶的洗钉机。独特的圆形状，可以容纳更多钉子，受热均匀方便烘干钉子，但放不稳。</p>
+	  <a href='https://s.nobook.com/?id=195591' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-ZhWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/xpkxdj.jpg" alt="小瓶款洗钉机">
+	 <div class="product-info">
+	  <h3>小瓶款洗钉机</h3>
+	  <p>进阶的洗钉机。体积更轻便，适合单次单个钉子清洗，但很易碎，需搭配保护液使用。</p>
+	  <a href='https://s.nobook.com/?id=195590' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/qxldxdj.jpg" alt="球形漏斗洗钉机">
+	 <div class="product-info">
+	  <h3>球形漏斗洗钉机</h3>
+	  <p>高级的洗钉机。有一根长长的排液管，本身体积不大但是很方便排废液，但容易穿模。无需搭配保护液使用。</p>
+	  <a href='https://s.nobook.com/?id=195592' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/ggkxdj.jpg" alt="钢管款洗钉机">
+	 <div class="product-info">
+	  <h3>钢管款洗钉机</h3>
+	  <p>高级的洗钉机。长长的钢化玻璃管，可以装很多钉子，但体积较大。需要两面都加橡胶塞，不然就掉出去了。无需搭配保护液使用。</p>
+	  <a href='https://s.nobook.com/?id=198465' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-UhWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/txcsq.png" alt="铁锈测试器">
+	 <div class="product-info">
+	  <h3>铁锈测试器</h3>
+	  <p>试管里装有铁钉。可以演示测试不同条件下铁钉的锈蚀状况。<s><small>（虽然看过Vial视频的都知道加盐水的先生锈）</small></s></p>
+ 	 <a href='https://s.nobook.com/?id=283075' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	  <a href="https://www.123865.com/s/uxYEvd-usCsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<!-- 洗钉液 -->
+	<h3 class="category-title" id="nailliquid">洗钉液</h3>
+	<div class="product">
+	 <img loading="lazy" src="./pic/dydxdy.jpg" alt="第一代洗钉液">
+	 <div class="product-info" data-tag="wrong">
+	  <h3>第一代洗钉液</h3>
+	  <p>研究第一代时没怎么考虑，能把铁锈去掉。结果配方太猛，钉子都腐蚀了(ToT)，于是问世一天就废了，出了二代。</p>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/dedxdy.jpg" alt="第二代洗钉液">
+	 <div class="product-info" data-tag="wrong">
+	  <h3>第二代洗钉液</h3>
+	  <p>一代的替代品。换了一种配方，温和了一些，但泡久了依然腐蚀。</p>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/dedxdysjb.jpg" alt="第二代洗钉液升级版">
+	 <div class="product-info">
+	  <h3>第二代洗钉液升级版</h3>
+	  <p>简称2.5代洗钉液。确立了更稀的浓度，并且用的时候还需要加水。虽然但是效果好多了，且不用VIP，所以作为Lemon长期支持的产品。</p>
+	  <a href='https://s.nobook.com/?id=198497' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-ShWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/dsdxdy.jpg" alt="第三代洗钉液">
+	 <div class="product-info">
+	  <h3>第三代洗钉液</h3>
+	  <p>颜色变成红色的了，因为加了可变色色素。配方再度修改，新增的色素方便指示液成分是否有效。如指示无效多半是洗完了。如洗了半天仍指示有效说明液加多了。</p>
+	  <a href='https://s.nobook.com/?id=195588' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-PhWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/xdjbhy.jpg" alt="第三代洗钉液">
+	 <div class="product-info">
+	  <h3>洗钉机保护液</h3>
+	  <p>保护洗钉机，防止其被钉子扎破。</p>
+	  <a href='https://s.nobook.com/?id=198612' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/honglebaji.jpg" alt="银镜液"> <img loading="lazy" src="./pic/lvlebaji.jpg" alt="镀铜液"> <img loading="lazy" src="./pic/huanglebaji.jpg" alt="镀银液">
+	 <div class="product-info">
+	  <h3>三小只</h3>
+	  <p><b>银镜液：</b>倒进试管，加热，就会有银镜反应！</p>
+	  <p><b>镀铜液：</b>和钉子反应，使其变成铜钉。</p>
+	  <p><b>镀银液：</b>一秒钟即可将铁钉置换成银钉！</p>
+	  <a href="https://www.bilibili.com/video/BV1pxHtzREzx" target="_blank" rel="noopener noreferrer" class="free-link">点击可以观看</a> <a href='https://s.nobook.com/?id=213166' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<!-- 洗铝液 -->
+	<h3 class="category-title" id="Alplatescrubber">洗铝液</h3>
+	<div class="product">
+	 <img loading="lazy" src="./pic/dydxly.jpg" alt="第一代洗铝液">
+	 <div class="product-info" data-tag="wrong">
+	  <h3>第一代洗铝液</h3>
+	  <p>可以用来清洗掉氧化铝。</p>
+	  <p>闲着没事拿洗钉液改的。被Utw气的删除了。</p>
+	 </div>
+	</div>
+	<!-- 洗铜液 -->
+	<h3 class="category-title" id="Copperpiecescrubber">洗铜液</h3>
+	<div class="product">
+	 <img loading="lazy" src="./pic/dydxty.jpg" alt="第一代洗铜液">
+	 <div class="product-info" data-tag="wrong">
+	  <h3>第一代洗铜液</h3>
+	  <p>废案。清洗起来太慢了，被干式洗铜机淘汰。并且有毒气。</p>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/xtyed.jpg" alt="第二代洗铜液">
+	 <div class="product-info" data-tag="wrong">
+	  <h3>第二代洗铜液</h3>
+	  <p>全网首发的这种颜色的洗铜液，配方也很独特，加入了具有特殊气味的液体。</p>
+	  <p>效果更好，搭配氩气洗铜机使用</p>
+	  <a href="https://www.bilibili.com/video/BV1xJhQzJE5V" target="_blank" rel="noopener noreferrer">点击可以观看</a>
+	 </div>
+	</div>
+	<!-- 洗铜机 -->
+	<h3 class="category-title">洗铜机</h3>
+	<div class="product">
+	 <img loading="lazy" src="./pic/gsxtj.jpg" alt="干式洗铜机">
+	 <div class="product-info" data-tag="wrong">
+	  <h3>干式洗铜机</h3>
+	  <p>不损耗的洗铜方法，但因为太吃操作bug还太多，被废止了。</p>
+	  <a href="https://b23.tv/xgzQsdn" target="_blank" rel="noopener noreferrer" class="free-link">点击查看3L经营干式洗铜机的证据</a>
+	 </div>
+	</div>
+	<p><em>*主要是洗好的铜片容易再次变黑！非常难解决。</em></p>
+	<!-- 胶体 -->
+	<h3 class="category-title">胶体</h3>
+	<div class="product">
+	<p>齐喜准备中…</p>
+	</div>
+	<!-- 气体相关 -->
+	<h3 class="category-title" id="gas">气体相关</h3>
+	<div class="product">
+	 <img loading="lazy" src="./pic/zyf.jpg" alt="制氧粉">
+	 <div class="product-info">
+	  <h3>制氧粉<small>（包含ZY250925 更新）</small></h3>
+	  <p>和制氧液搭配使用，制取大量氧气。</p>
+	  <p><strong>别直接吸入，防止氧中毒。</strong></p>
+	  <a href="https://b23.tv/m4KyqAr" target="_blank" class="free-link">点击观看视频</a> <a href='https://s.nobook.com/?id=202871' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-ygWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/mhq.jpg" alt="灭火器">
+	 <div class="product-info">
+	  <h3>灭火器<small>（包含MH20250721 更新）</small></h3>
+	  <p>可以熄灭蜡烛和火柴的火苗，以免造成危险。</p>
+	  <a href="https://www.bilibili.com/video/BV1Cm3MzkEcw/" target="_blank" rel="noopener noreferrer" class="free-link">点击观看视频</a> <a href='https://s.nobook.com/?id=208815' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-VgWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/xly.jpg" alt="消氯液">
+	 <div class="product-info">
+	  <h3>消氯液</h3>
+	  <p>可以高效吸收氯气。</p>
+	  <details>
+	  <summary>实验室测试报告</summary>
+	  <img loading="lazy" src="./pic/jxy2.png" alt="报告" style="display: block; margin: 0 auto;">
+	  <p><small>实验室条件下，使用标准氯气气囊，阀门开到最大，持续输入氯气，本品在02:41内可以保证<b>烧杯内无氯气产生</b>，具有吸收氯气的功效。</small>
+	  </details>
+	  <a href='https://s.nobook.com/?id=208815' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-VgWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/pyjqf.jpg" alt="排油集气法">
+	 <div class="product-info">
+	  <h3>排油集气法</h3>
+	  <p>创新的集气方法，适用于少数溶于水的气体收集（尤其是氨气）。</p>
+	  <p><em>*二氧化氮实测不行。</em></p>
+	  <a href='https://s.nobook.com/?id=210751' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/1765200084817.png" alt="排油集气法">
+	 <div class="product-info">
+	  <h3>冰箱1代</h3>
+	  <p>改编自冰块。</p>
+	  <p>非常不好用的冰箱，操作非常复杂，涉及很多步骤才能冷却，千万不要买（确信）。</p>
+	  <a href='https://s.nobook.com/?id=250865' rel='noopener noreferrer' target='_blank'>我偏要买 
+	   <br></a>
+	  <details>
+	   <summary>如何使用冰箱1代？</summary> <small>很简单（？）。首先将你要冷却的液体放入试管，然后将试管放入冰箱，然后打开两个止水夹，在漏斗里加入冷却液，完全漏入冰箱后关闭止水夹，盖上木盖（关键！），等待温度下降。</small>
+	  </details>
+	 </div>
+	</div>
+	<!-- 食物与饮料 -->
+	<h3 class="category-title" id="food&amp;drink">食物与饮料</h3>
+	<div class="product">
+	 <img loading="lazy" src="./pic/xmcyf.jpg" alt="现磨茶叶粉">
+	 <div class="product-info">
+	  <h3>现磨茶叶粉</h3>
+	  <p>非常新鲜，只需要放进水里煮沸或者放进煮沸的水里就可以。</p>
+	  <p>据说很补铁。纯添加零天然。</p>
+	  <a href="https://www.bilibili.com/video/BV19he8zVEuA" target="_blank" class="free-link">点击观看视频</a> <a href="https://www.123865.com/s/uxYEvd-DxWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product" id="#mantou">
+	 <img loading="lazy" src="./pic/mt.jpg" alt="馒头">
+	 <div class="product-info">
+	  <h3>馒头</h3>
+	  <p>纯发酵馒头，采用高质量小麦粉。</p>
+	  <p>做实验做饿了来一个。</p>
+	  <a href='https://s.nobook.com/?id=198905' rel='noopener noreferrer' target='_blank'>点击可以体验 </a>
+	  <a href="https://www.123865.com/s/uxYEvd-UsCsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	  <p><i>&lt;!-- 本馒头已经过Utw酱料<a href="https://s.nobook.com/index.html?id=302424" target="_blank" rel="noopener noreferrer">兼容性检测</a>，请放心食用。--&gt;</i></p>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/mt.jpg" alt="馒头">
+	 <div class="product-info" data-tag="Pro">
+	  <h3>馒头Pro</h3>
+	  <p>扎不坏，砸不烂，威力堪比原子弹！</p>
+	  <p>我们的新款馒头Pro，齐喜巅峰之作！</p>
+	  <a class='free-link' href='https://s.nobook.com/?id=279110' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>	
+	<div class="product">
+	 <img loading="lazy" src="./pic/xmlc.jpg" alt="绿茶">
+	 <div class="product-info">
+	  <h3>现磨绿茶</h3>
+	  <p>就是上面的绿茶粉泡好的样子。</p>
+	  <p><em>*加点糖会不会好点？</em></p>
+	  <a href='https://s.nobook.com/?id=198907' rel='noopener noreferrer' target='_blank'>点击可以体验 </a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/ygzglz(t).jpg" alt="紫甘蓝（一锅)">
+	 <div class="product-info">
+	  <h3>一锅紫甘蓝汁（汤)</h3>
+	  <p>紫甘蓝汁，非常好喝。</p>
+	  <p>喝到肚子里和胃酸反应就变色了。当个酸碱指示剂不错。含有的花青素可以抗衰老。</p>
+	  <a href='https://s.nobook.com/?id=198910' rel='noopener noreferrer' target='_blank'>点击可以体验 </a>
+	  <a href="https://www.123865.com/s/uxYEvd-SsCsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/ywzglz(t).jpg" alt="紫甘蓝（一碗)">
+	 <div class="product-info" data-tag="wrong">
+	  <h3>一碗紫甘蓝汁（汤)</h3>
+	  <p>紫甘蓝汁，非常好喝。</p>
+	  <p>没人买，下架了。</p>
+	 </div>
+	</div>
+	<!-- 液体处理 -->
+	<h3 class="category-title" id="liquidhhhhh">液体处理</h3>
+	<div class="product">
+	 <img loading="lazy" src="./pic/xxysclq.jpg" alt="硬水处理器">
+	 <div class="product-info">
+	  <h3>小型硬水处理器</h3>
+	  <p>支持检测您的水是否为硬水，支持进行蒸馏。也可以用来石油分馏。</p>
+	  <p>非常好用！</p>
+	  <a href="https://b23.tv/evuV8u1" target="_blank" rel="noopener noreferrer">点击可以观看</a> <a href='https://s.nobook.com/?id=198011' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-lhWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/xpsy.png" alt="小瓶石油">
+	 <div class="product-info">
+	  <h3>小瓶石油</h3>
+	  <p>搭配蒸馏机使用。易燃，可做燃料，燃烧产生二氧化碳和水。</p>
+	  <p><strong><strong>请注意，这是虚拟产品，请勿在现实中私自挖取石油资源！</strong></strong></p>
+	  <a href='https://s.nobook.com/?id=259350' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/dpsy.png" alt="大瓶石油">
+	 <div class="product-info">
+	  <h3>大瓶石油</h3>
+	  <p>250mL。适合测试用。相比于小瓶更加实惠！</p>
+	  <p><strong><strong>请注意，这是虚拟产品，请勿在现实中私自挖取石油资源！</strong></strong></p>
+	  <a href='https://s.nobook.com/?id=259353' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/feiyechuliqi.jpg" alt="废液处理器">
+	 <div class="product-info" data-tag="HSF">
+	  <h3>废液处理装置</h3>
+	  <p>利用NB实验室的逆天特性，可以迅速处理掉大量废液。废液会直接消失掉，不会污染环境。</p>
+	  <p>别放固体就行。</p>
+	  <a href='https://s.nobook.com/?id=250136' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-fVWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/fyclq2.jpg" alt="废液处理器2代">
+	 <div class="product-info">
+	  <h3>废液处理装置二代</h3>
+	  <p>利用NB实验室的逆天特性，可以迅速处理掉大量废液。废液会直接消失掉，不会污染环境。</p>
+	  <p>别放固体就行。</p>
+	  <a href='https://s.nobook.com/?id=259512' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<!-- 物理 -->
+	<h3 class="category-title" id="physics">逆天物理</h3>
+	<div class="product">
+	 <img loading="lazy" src="./pic/sdj.png" alt="鸡蛋粉碎机">
+	 <div class="product-info">
+	  <h3>鸡蛋粉碎机</h3>
+	  <p>用不完的鸡蛋可以在这里销毁。目前实现了半自动化。</p>
+	  <p><em>还不够智能</em></p>
+ 	 <a href='https://s.nobook.com/?id=277343' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/hjfc.jpg" alt="飞船">
+	 <div class="product-info">
+	  <h3>缓降飞船</h3>
+	  <p>从高处运输易碎品不好运输，使用我们的缓降飞船，完美抵消墙壁和地面冲击力，g=20m/s²也没事！</p>
+	  <p>非常好用！</p>
+	  <p><em>容易被物理老师友好问候</em></p>
+	  <a href="https://www.bilibili.com/video/BV1Lwe7zyEzo" target="_blank" rel="noopener noreferrer">点击可以观看</a> <a href='https://s.nobook.com/?id=217998' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/1.png" alt="大炮1"> <img loading="lazy" src="./pic/2.png" alt="大炮2">
+	 <div class="product-info">
+	  <h3>逆天大炮</h3>
+	  <p>我们利用NB逆天特性，研制出了简易版大炮，可以发射大球。<b>威力巨大！</b>
+	   <br>
+	   只需要将大球卡在游标卡尺右侧突出处，然后蓄力，等待即可。</p>
+	  <p>非常好用！</p>
+	  <p><em>可以轰炸陨石</em></p>
+	  <a href='https://s.nobook.com/?id=259395' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/xc.jpg" alt="小车">
+	 <div class="product-info" data-tag="new">
+	  <h3>小车</h3>
+	  <p>没啥用的小车。官方同款。</p>
+	  <a href='https://s.nobook.com/index.html?id=301549' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/cz.jpg" alt="尺子">
+	 <div class="product-info" data-tag="new" data-tag="recommend">
+	  <h3>尺子</h3>
+	  <p>可以测量曼波的身高。</p>
+	  <a href='https://s.nobook.com/index.html?id=302454' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	  <a href="https://www.123865.com/s/uxYEvd-WWCsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/mb.jpg" alt="秒表">
+	 <div class="product-info" data-tag="new">
+	  <h3>智<s><small> 障 </small></s>能时钟</h3>
+	  <p>实用的东西。可以看时间，还能测量时间。</p>
+	  <a href='https://s.nobook.com/index.html?id=302455' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	  <a href="https://www.123865.com/s/uxYEvd-CWCsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<h3 class="category-title" id="others">其它</h3>	
+	<div class="product">
+	 <img loading="lazy" src="./pic/yanhua.png" alt="烟花">
+	 <div class="product-info">
+	  <h3>烟花</h3>
+	  <p>新年限定！一组十个，非常喜庆的烟花。<br>赠试纸引线+氯盐！<small>（暂不赠送氯化锂、氯化铯、氯化钫和氯化锶）</small></p>
+	  <a href='https://s.nobook.com/?id=267095' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/3ldtdcp.jpg" alt="地铁单程票">
+	 <div class="product-info">
+	  <h3>3L地铁单程票</h3>
+	  <p>我们虚拟地铁的虚拟票。可以用它乘坐至任何一站。给齐喜投币可以终身免费乘车。</p>
+	  <a href="https://www.bilibili.com/BV1rr8kzJEog" target="_blank" rel="noopener noreferrer">点击可以观看</a> <a href="https://www.123684.com/s/sHDBvd-rSSKd" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/blf.jpg" alt="白磷粉">
+	 <div class="product-info" data-tag="wrong">
+	  <h3>白磷粉</h3>
+	  <p>白色的磷粉，不咋安全，下架了</p>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/fhy.jpg" alt="防火液">
+	 <div class="product-info">
+	  <h3>防火液</h3>
+	  <p>非常不好用的防火液。如果担心能点着的小木条太好用了，可以试试我们的防火液，根本点不着！</p>
+	  <a href="https://www.bilibili.com/video/BV1LcxazAEnP" target="_blank" rel="noopener noreferrer" class="free-link">点击观看视频</a> <a href='https://s.nobook.com/?id=217417' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/soap.png" alt="肥皂">
+	 <div class="product-info" data-tag="wrong">
+	  <h3>肥皂</h3>
+	  <p>固体肥皂，加水即可成为普通肥皂水。
+	   <br>实测官方修复了这个逆天特性，不会生成颗粒，本产品废止。</p>
+	 </div>
+	</div>
+	<div class="product">
+	 <img loading="lazy" src="./pic/ptlt.jpg" alt="破铜烂铁">
+	 <div class="product-info">
+	  <h3>光谱管组</h3>
+	  <p></p>
+	  <p>细玻璃管里存放着很多气体，据说通电后会发光！</p>
+	  <p>旋动旋钮，探索一下吧！</p>
+	  <a href="https://m.bilibili.com/video/BV1fmsnzMECr" target="_blank" rel="noopener noreferrer">点击可以观看</a> <a href='https://s.nobook.com/?id=217998' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	 </div>
+	</div>
+   </section>
+	<script>
+	// 🚫 阻止 F12、Ctrl+Shift+I、Ctrl+U 等
+  document.addEventListener('keydown', (e) => {
+	if (
+	  e.key === 'F12' ||
+	  (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || // DevTools
+	  (e.ctrlKey && e.key === 'u') ||                                 // 查看源码
+	  (e.ctrlKey && e.key === 's') ||                                 // 保存网页
+	  (e.ctrlKey && e.key === 'p')                                    // 打印
+	) {
+	  e.preventDefault();
+	  e.stopPropagation();
+	  window.location.href="/403.html"
+	  return false;
+	}
+  });
+	</script>
+  </main>
+  <!-- 页脚 -->
+  <footer>
+   <p><a href="https://space.bilibili.com/345281727">@齐喜的频道</a> 2024-2026 保留所有权利。</p>
+   <p><small>*.nobook.com 为 北京乐步教育科技有限公司 的网址。</small></p>
+   <p><small>123网盘提供下载支持</small></p>
+   <p><small>版本 v0.2.21</small></p>
+  </footer>
+ </body>
+</html>

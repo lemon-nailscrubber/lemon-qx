@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#d42300">
+  <meta property="og:title" content="齐喜的网站：兑换码">
+  <meta property="og:description" content="齐喜的洗钉机幻想">
+  <meta property="og:image" content="./pic/ydkxdj.jpg">
+  <meta property="og:url" content="https://nb-qx.top/code">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#d42300">
+  <title>齐喜的网站--兑换码验证</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="/manifest.json">
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="1024x1024" href="/1024.png">
+  <meta name="application-name" content="齐喜的网站">
+  <meta name="msapplication-TileColor" content="#20C1FF">
+  <meta name="msapplication-TileImage" content="/144.png">
+  <style>
+	/* 兑换码样式 */
+	input {
+	  width: 100%;
+	  padding: 10px;
+	  margin: 10px 0;
+	  border: 1px solid #cccccc;
+	  border-radius: 4px;
+	}
+
+	.omgbutton {
+	  padding: 10px 15px;
+	  background-color: #007bff;
+	  color: white;
+	  border: none;
+	  border-radius: 4px;
+	  cursor: pointer;
+	}
+
+	button:hover {
+	  background-color: #0056b3;
+	}
+
+	#result {
+	  margin-top: 15px;
+	  font-weight: bold;
+	}
+
+	#jumpButton {
+	  display: inline-block;
+	  margin-top: 10px;
+	  padding: 10px 15px;
+	  background-color: #28a745;
+	  color: white;
+	  text-decoration: none;
+	  border-radius: 4px;
+	}
+
+	#jumpButton:hover {
+	  background-color: #1e7e34;
+	}
+
+	.input-group {
+	  display: flex;
+	  gap: 8px;
+	  margin: 20px 0;
+	}
+
+	.snowflake {
+	  position: absolute;
+	  color: #ecf0f1;
+	  font-size: 1.2em;
+	  opacity: 0.7;
+	  pointer-events: none;
+	}
+	
+	.hhhh{
+	background: #20C1FF; 
+	color: #000; 
+	border: none; 
+	width: 24px; 
+	height: 24px; 
+	border-radius: 50%; 
+	font-weight: 
+	bold; 
+	cursor: pointer;
+	}
+
+	.comment-form {
+	  max-width: 600px;
+	  margin: 2rem auto;
+	  padding: 1.5rem;
+	  background: #f9fafb; /* 浅色模式背景 */
+	  border-radius: 8px;
+	  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+	 ;
+	}
+
+	.comment-form label {
+	  display: block;
+	  margin-bottom: 0.4rem;
+	  font-weight: 600;
+	 ;
+	}
+	
+	.comment-form .form-group {
+	  margin-bottom: 1.5rem;
+	}
+	
+	.comment-form textarea,
+	.comment-form input[type="date"] {
+	  width: 100%;
+	  padding: 0.6rem;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+	  font-size: 1rem;
+	  resize: vertical;
+	  background: white; /* 输入框浅色背景 */
+	 ;
+	}
+	
+	.comment-form button[type="submit"] {
+	  background: #0070f3;
+	  color: white;
+	  border: none;
+	  padding: 0.75rem 1.5rem;
+	  font-size: 1rem;
+	  border-radius: 4px;
+	  cursor: pointer;
+	  transition: background 0.2s;
+	}
+	.comment-form button[type="submit"]:hover {
+	  background: #0059c4;
+	}
+	
+	/* 深色模式 */
+	@media (prefers-color-scheme: dark) {
+	  .comment-form {
+		background: #1e1e2e;
+		color: #e6e6e6;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+	  }
+	
+	  .comment-form label {
+		color: #f0f0f0;
+	  }
+
+	  .comment-form textarea,
+	  .comment-form input[type="date"] {
+		background: #2d2d3d;
+		border: 1px solid #444;
+		color: #f0f0f0;
+		caret-color: #0070f3;
+	  }
+	
+	  .comment-form textarea:focus,
+	  .comment-form input[type="date"]:focus {
+		outline: none;
+		border-color: #0070f3;
+		box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.3);
+	  }
+  
+	.comment-form textarea::placeholder,
+	.comment-form input[type="date"]::placeholder {
+	  color: #aaa;
+	  opacity: 1;
+	}
+
+}
+  </style>
+ </head>
+ <body>
+  <!-- 页面头部 -->
+  <header style="position: relative;">
+   <h1>齐喜的网站</h1>
+   <h6>终于进来了，随便看看</h6>
+   <!-- 汉堡菜单按钮 + 下拉 -->
+   <div class="nav-menu-toggle">
+	<div class="hamburger" onclick="this.classList.toggle('active')">
+	 <span></span> <span></span> <span></span>
+	</div>
+	<ul class="nav-dropdown">
+	 <li><a href="/"><b>首页</b></a></li>
+	 <li><a href="/product"><b>产品中心</b></a></li>
+	 <li><a href="hengdian.html"><b>恒电虚拟公司</b></a></li>
+	 <li><a href="/code">兑换码</a></li>
+	 <li><a href="/weather"><b>天气瞎报</b></a></li>
+	 <li><a href="https://subway.nb-qx.top/"><strong>虚拟地铁</strong></a></li>
+	 <li><a href="/resources"><b>资源中心</b></a></li>
+	 <li><a href="/about"><b>关于我</b></a></li>
+	</ul>
+   </div>
+  </header>
+  <!-- 主体内容 -->
+  <main class="container">
+   <marquee scrollamount="5">来看看时事？</marquee>
+   <h2>💥 齐喜的兑换码验证</h2>
+   <p style="color: red;">注意：本功能需要联网，如无法兑换，请检查网络。</p>
+   <section>
+	<!-- 输入框 + 右侧清空按钮 -->
+	<div style="position: relative; display: inline-block; width: 100%; max-width: 300px;">
+	 <input type="text" id="codeInput" placeholder="输入兑换码" style="width: 100%; padding-right: 32px; box-sizing: border-box;">
+	 <button onclick="clearCode()" style="
+				   position: absolute; 
+				   right: 5px; top: 50%; 
+				   transform: translateY(-50%); 
+				   width: 24px; height: 24px; 
+				   background: #ecf0f1; 
+				   border: 1px solid #bdc3c7; 
+				   border-radius: 4px; 
+				   color: #7f8c8d; 
+				   font-size: 18px; 
+				   cursor: pointer; 
+				   display: flex; 
+				   align-items: center; 
+				   justify-content: center;
+				   padding: 0;"><b>× </b></button>
+	</div>
+	<!-- 验证按钮 -->
+	<div style="margin-top: 12px;">
+	 <button onclick="verifyCode()" class="omgbutton">验证兑换码</button>
+	</div>
+	<div id="result" style="margin-top: 10px; min-height: 1.4em;"></div>
+	<!-- 跳转区域（由 JS 控制显隐） -->
+	<div id="jumpContainer" style="display: none; margin-top: 10px;">
+	 <a id="jumpButton" href="#" target="_blank">点击跳转</a>
+	</div>
+   </section>
+   <p>
+	<br>
+   </p>
+   <h3>时事&nbsp;<small>#6</small></h3>
+   <p>· 时事是不可能讲完的，每期都会有！</p>
+<p>
+   <br>· 热烈庆祝<a href="https://space.bilibili.com/3546872910187364" target="_blank" rel="noopener noreferrer">@大剑不如公</a>回到NB圈并重建PTC！<br>
+   <br>· 
+</p>
+   <hr>
+   <form method="POST" name="discus" netlify class="comment-form" action="/_thankyou.html">
+	<!-- 防机器人隐藏字段（别删！） -->
+	<input type="hidden" name="form-name" value="discus">
+	<p hidden><label>请不要填写此字段，如果你不想让此次表格作废。<input name="bot-field"></label></p>
+	<div style="margin-bottom: 1.5rem;">
+	 <label for="message" style="display: block; margin-bottom: 0.4rem; font-weight: 600;">昵称</label> <textarea id="nickname" name="nicheng" rows="2" placeholder="用于评论时展示身份，允许齐喜根据所填内容展示一个头像" style="width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
+	</div>
+	<!-- 留言 -->
+	<div style="margin-bottom: 1.5rem;">
+	 <label for="message" style="display: block; margin-bottom: 0.4rem; font-weight: 600;">评论</label> <textarea id="content" name="neirong" rows="5" required placeholder="评论被UP主精选后，对所有人可见" style="width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
+	</div>
+	<!-- 评论日期 -->
+	<div style="margin-bottom: 1.5rem;">
+	 <label for="comment-date" style="display: block; margin-bottom: 0.4rem; font-weight: 600;">评论日期</label> <input type="date" id="comment-date" name="comment-date" required style="width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+	</div>
+	<!-- 提交按钮 -->
+	<button type="submit" style="background: #0070f3; color: white; border: none; padding: 0.75rem 1.5rem; font-size: 1rem; border-radius: 4px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#0059c4'" onmouseout="this.style.background='#0070f3'">提交</button>
+   </form>
+   <section>
+	<div class="comments-container">
+	 <h3>评论区</h3>
+	 <p style="color: #000;"><small>可能出现评论无法发送的情况，敬请谅解！</small>
+	  <br>
+	  <small>由于齐喜的免费额度不够用，所以将会减少更新频率。</small>
+	  <br></p>
+	 <hr>
+	 <br>
+	 <p></p>
+	 <!-- 评论项放在这里 -->
+	 <div class="comment-item">
+	  <img src="./pic/avatar-1.jpg" alt="测试" class="avatar">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<p><strong class="nickname">甲</strong></p>
+		<span class="date">2026-01-32</span>
+	   </div>
+	   <p class="comment-text">测试评论区测试评论区测试评论区测试评论区测试评论区</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=乙" alt="乙" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">乙</strong> <span class="date">2026-02-30</span>
+	   </div>
+	   <p class="comment-text">我有头像我有头像我有头像我有头像</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://i0.hdslb.com/bfs/face/8d197eb264e5c8d0f6af2f1f133c25b7fd4ed9f2.jpg@180w_180h.webp" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">啊啊啊</strong> <span class="date">2026-02-07</span>
+	   </div>
+	   <p class="comment-text">啊啊啊啊啊啊啊</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="./pic/avatar-3.jpg" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">Fafat</strong> <span class="date">2026-02-07</span>
+	   </div>
+	   <p class="comment-text">测试</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="./pic/avatar-1.jpg" alt="测试" class="avatar">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<p><strong class="nickname">手搓高锰酸酐</strong></p>
+		<span class="date">2026-02-08</span>
+	   </div>
+	   <p class="comment-text">不是为什么你的石油蒸馏机还有玫瑰花啊怎么改代码搞得啊</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="./pic/avatar-1.jpg" alt="测试" class="avatar">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<p><strong class="nickname">bili_67847204902</strong></p>
+		<span class="date">2026-02-08</span>
+	   </div>
+	   <p class="comment-text">发现一个很简单的东西，就是氨气和酸会生成铵盐，</p>
+	   <details style="color: #333;">
+		<summary>查看更多</summary> 而众所周知铵盐和氢氧化钠等氢氧化金属物会生成盐和氨气。用硫酸给蔗糖脱水的时候，会发生反应县城二氧化硫、二氧化碳等物质。溴的四氯化碳和酸性高锰酸钾会生成一种膜跟植物油生成的膜一样，而且肥皂水洗不掉。并且任何质子酸碱定义中的酸都可以与醇都可以生成酯，工业制取甲酸都是用一氧化碳和水。
+	   </details>
+	   <p></p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="./pic/avatar-2.jpg" alt="头像" class="avatar">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<p><strong class="nickname">Utw频道</strong></p>
+		<span class="date">4000-01-01</span>
+	   </div>
+	   <p class="comment-text">Utw也有官网 <a href="http://45d.cn/Utw" target="_blank" rel="noopener noreferrer"> 45d.cn/Utw/ </a>但是很敷衍</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=钾钠姐妹" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">钾钠姐妹</strong> <span class="date">2026-02-13</span>
+	   </div>
+	   <p class="comment-text">兑换码没有效果。但这其实我也挺喜欢的。</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=小NB" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">小NB</strong> <span class="date">2026-02-13</span>
+	   </div>
+	   <p class="comment-text">我要作公司！</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=小NB" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">小NB</strong> <span class="date">2026-02-15</span>
+	   </div>
+	   <p class="comment-text">有A星、NB星、U星、Na星。我我是Na星的</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=小NB" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">小NB</strong> <span class="date">2026-02-15</span>
+	   </div>
+	   <p class="comment-text">作出了FeF2(氟化亚铁)</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+ 	 <img src="./pic/3Llogo.png" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">3L</strong> <span class="date">2026-02-15</span>
+	   </div>
+ 	  <p class="comment-text"> <small>⚠️ 该账号可能存在假冒行为，请注意甄别</small><br>Utw是gay</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=22222" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">22222</strong> <span class="date">202022-02-22</span>
+	   </div>
+	   <p class="comment-text">3232635265621656</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=小NB" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">小NB</strong> <span class="date">2026-02-19</span>
+	   </div>
+	   <p class="comment-text">不是我吧</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="./pic/avatar-3.jpg" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">Fafat</strong> <span class="date">1145-01-04</span>
+	   </div>
+	   <p class="comment-text">我来自1145年1月4日</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=111" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">111</strong> <span class="date">111111-11-11</span>
+	   </div>
+	   <p class="comment-text">11111</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="./pic/avatar-2.jpg" alt="头像" class="avatar">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<p><strong class="nickname">Utw频道</strong></p>
+		<span class="date">2026-02-28</span>
+	   </div>
+	   <p class="comment-text">你还没加我网站</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="./pic/avatar-2.jpg" alt="头像" class="avatar">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<p><strong class="nickname">Utw频道</strong></p>
+		<span class="date">3000-02-23</span>
+	   </div>
+	   <p class="comment-text">自从Lemon币没了,这个兑换码界面只能看时事和评论区了</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="./pic/avatar-2.jpg" alt="头像" class="avatar">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<p><strong class="nickname">Utw频道</strong></p>
+		<span class="date">2026-02-28</span>
+	   </div>
+	   <p class="comment-text">该死的后端 又爬我爬虫 你这个苹果派长得像齐喜故意烤糊的爬虫 全都指向中国的地区黑龙江UA未知身份曼波的爬虫 关键是后端有我吗爬就你 404过几次全是爬这UA又换了个家伙 欺U太甚 于是php弄了个假的我 php的假 内容是Utw公司，我们不能再容忍了！ 还把410.html重定向到一些目录的可疑 410再访问就会触发出师表，并加载爬虫 非常的废物👎🏻 屏蔽器扩展的自带也装上 📺✂️必剪 §f👍🏻 〇 🌟</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=atzratzratzr" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">atzratzratzr</strong> <span class="date">2026-01-15</span>
+	   </div>
+	   <p class="comment-text">哈哈，看我能不能被评精选评论</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="./pic/avatar-3.jpg" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">Fafat</strong> <span class="date">275760-02-01</span>
+	   </div>
+	   <p class="comment-text">最晚的日期测试</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=小NB" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">小NB</strong> <span class="date">2026-02-26</span>
+	   </div>
+	   <p class="comment-text">我在洗钉、铜、铝液里加石蕊 (这其实是三能洗)</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="./pic/avatar-2.jpg" alt="头像" class="avatar">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<p><strong class="nickname">Utw频道</strong></p>
+		<span class="date">10000-12-26</span>
+	   </div>
+	   <p class="comment-text">我弄了个假的php里面填写英文的“这里是静态网站，没有后端，如果你真的要爬，去爬https://nb-qx.top”</p>
+	  </div>
+	 </div>
+	 <div class="comment-item">
+	  <img src="https://api.dicebear.com/7.x/identicon/svg?seed=小NB" alt="头像" class="avatar" loading="lazy">
+	  <div class="comment-content">
+	   <div class="comment-header">
+		<strong class="nickname">小NB</strong> <span class="date">2026-02-28</span>
+	   </div>
+	   <p class="comment-text">Fafat是宋朝人</p>
+	  </div>
+	 </div>
+	 </div>
+	 <p>大家帮我看看这条评论我要不要精选：↓
+	  <br>
+	  <br></p>
+	 <img src="./pic/comment-1.jpg" alt="Utw的逆天评论">
+	</div>
+	<p><br>IP为<code>111.1.98.2</code>的用户，多次<b>冒充他人身份发布不恰当言论</b>，喜提<b>永久禁言</b>！</p>
+   </section>
+  </main>
+  <!-- 页脚 -->
+  <footer>
+   <p><a href="https://space.bilibili.com/345281727">@齐喜的频道</a> 2024-2026 保留所有权利。</p>
+   <p><small>*.nobook.com 为 北京乐步教育科技有限公司 的网址。</small></p>
+   <p><small>123网盘提供下载支持</small></p>
+   <p><small>版本 v.0.2.21 </small></p>
+  </footer>
+ </body>
+</html>

@@ -1,0 +1,127 @@
+
+<!doctype html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#20C1FF">
+  <meta name="哈哈哈" content="哈哈哈">
+  <meta property="og:title" content="齐喜的网站：Vial币查询器">
+  <meta property="og:description" content="本网站可以帮助你查询一条Vial币（Vial币）兑换码，非常实用！">
+  <meta property="og:image" content="https://vial.orgent.top//HomeWp/NdcLogo4848.ico">
+  <meta property="og:url" content="https://nailscrubber.netlify.app/resources/res7.html">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#20C1FF">
+  <title>齐喜的网站--Vial币查询器</title>
+  <!-- Favicon -->
+  <link rel="icon" href="https://vial.orgent.top//HomeWp/NdcLogo4848.ico" type="image/x-icon">
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 别看了这里不好看 -->
+  <!-- 🚫你违反了用户协议，你不能使用我们的网站。 -->
+  <!-- 🚫你违反了用户协议，你不能使用我们的网站。 -->
+  <!-- 🚫你违反了用户协议，你不能使用我们的网站。 -->
+  <!-- 🚫你违反了用户协议，你不能使用我们的网站。 -->
+  <!-- 🚫你违反了用户协议，你不能使用我们的网站。 -->
+  <link rel="stylesheet" href="../style.css">
+ </head>
+ <body>
+  <!-- 页面头部 -->
+  <header>
+   <h1>齐喜的网站</h1>
+   <h6>发明这东西的是个人物</h6>
+   <!-- 汉堡菜单按钮 + 下拉 -->
+   <div class="nav-menu-toggle">
+	<div class="hamburger" onclick="this.classList.toggle('active')">
+	 <span></span> <span></span> <span></span>
+	</div>
+	<ul class="nav-dropdown">
+	 <li><a href='/'><strong>首页</strong></a></li>
+	 <li><a href='/product'><strong>产品中心</strong></a></li>
+	 <li><a href="../hengdian.html"><strong>恒电虚拟公司</strong></a></li>
+	 <li><a href='/code'><strong>兑换码</strong></a></li>
+	 <li><a href='/weather'><strong>天气瞎报</strong></a></li>
+	 <li><a href='https://subway.nb-qx.top/'><strong>虚拟地铁</strong></a></li>
+	 <li><a href='/resources'>资源中心</a></li>
+	 <li><a href='/about'><strong>关于我</strong></a></li>
+	</ul>
+   </div>
+  </header>
+  <!-- 主体内容 -->
+  <main class="container">
+   <style>
+	button {
+	  background: #ffcc00;
+	  color: #000;
+	  border: none;
+	  padding: 12px 24px;
+	  font-size: 1.1em;
+	  border-radius: 50px;
+	  cursor: pointer;
+	  margin: 10px;
+	  font-weight: bold;
+	  transition: transform 0.2s;
+	}
+	button:hover {
+	  transform: scale(1.05);
+	}
+	#result {
+	  margin-top: 25px;
+	  font-size: 1em;
+	  min-height: 2em;
+	  word-break: break-all;
+	}
+  </style>
+   <h2>🪙 Vial 币兑换码查询器</h2>
+   <p>点击按钮，查询一条可用的兑换码（仅供学习），如果已使用可以换一个，安全无风险（？）<br><br><small>大概需要花费100ms的时间，也许有重复。<br></small></p>
+   <span><p><br></p></span>
+  <div class="btn-group">
+	<button onclick="generate(354, 10)">10 币</button>
+	<button onclick="generate(863, 50)">50 币</button>
+  </div>
+  <div id="result">
+	<p>点击上方按钮生成兑换码</p>
+  </div>
+  <div class="product">
+  <a href="https://vial.orgent.top/HomeWp/Vialac.html" target="_blank" rel='noopener noreferrer'>Vial网站</a>
+  </div>
+
+	<script src="https://vial.orgent.top/MainScripts/InitGpWn.js"></script>
+	<script>
+	let lastMult = {
+	  354: parseInt(localStorage.getItem('last_354') || '28'),
+	  863: parseInt(localStorage.getItem('last_863') || '11')
+	};
+
+	function generate(mod, coins) {
+	  // 找下一个大于10000的倍数
+	  lastMult[mod]++;
+	  const code = mod * lastMult[mod];
+
+	  // 保存进度
+	  localStorage.setItem(`last_${mod}`, lastMult[mod].toString());
+
+	  // 更新显示
+	  document.getElementById('result').innerHTML = `
+		<div>✅ ${coins} Vial币兑换码：</div>
+		<div id="code"><strong>${code}</strong></div>
+	  `;
+	  
+	  navigator.clipboard.writeText(String(code)).catch(err => {
+		console.warn("自动复制失败", err);
+	  });
+	}
+	</script>
+  </main>
+ </body>
+</html>

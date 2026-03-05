@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN" translate="no">
+ <head>
+  <meta charset="UTF-8"> <!-- 字符，不然乱码 -->
+  <!-- 欢迎扒齐喜的代码！本页面遵守MIT协议。 -->
+  <!-- 完整请参阅 https://opensource.org/license/MIT -->
+  <!-- Copyright (c) 2024-2026 齐喜 -->
+  <!-- 任何人可免费使用、复制、修改、合并、发布、分发、再授权及销售本软件及其副本，-->
+  <!-- 前提是包含本版权声明和本许可声明。 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 建议加，不然手机端看不清 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- 给老Internet Explorer用的，可以删 -->
+  <meta name="theme-color" content="#20C1FF"> <!-- 主题色！一些浏览器会延伸颜色 -->
+  <meta property="og:title" content="齐喜的网站：天气瞎报"> <!-- 用微信发给别人时的标题 -->
+  <meta property="og:description" content="齐喜的天气瞎报，非常不准确\n我们采用虚拟城市，仅供娱乐\n不是，这东西居然还有人分享😉，感谢支持"> <!-- 用微信分享给别人时标题下边的文字 -->
+  <meta property="og:image" content="/pic/icon.jpg"> <!-- 好像没啥用，微信发给别人时的那个图片 -->
+  <meta property="og:url" content="https://nb-qx.top/weather"> <!-- 微信发给别人时下边的网址 -->
+  <meta name="apple-mobile-web-app-capable" content="yes"> <!-- iOS添加到主屏幕时的适配 -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#20C1FF"> <!-- 官方文档里只有black等三个模式可选，填个颜色万一有用呢，这个是 iOS 添加到主屏幕后打开状态栏的样式 -->
+  <title>齐喜的网站--天气瞎报</title> <!-- 通用标题 -->
+  <link rel="manifest" href="/manifest.json"> <!-- 给包括Android在内的很多系统/浏览器/平台用的样式表 -->
+  <link rel="stylesheet" href="style.css"> <!-- 导入你的 CSS 文件 -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- 标签页/收藏夹里的小图标 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> <!-- 苹果设备添加到主屏幕后的图标 -->
+  <link rel="apple-touch-icon" sizes="1024x1024" href="/1024.png"> <!-- 高分屏苹果设备添加到主屏幕后的图标 -->
+  <meta name="application-name" content="齐喜的网站"> <!-- Windows 8-10 将网站以磁贴形式pin到开始菜单/屏幕上时的文字 -->
+  <meta name="msapplication-TileColor" content="#20C1FF"> <!-- 同上，这个是磁贴颜色 -->
+  <meta name="msapplication-TileImage" content="/144.png"> <!-- 同上，这个是图标 -->
+  <!-- 很多Windows系统相关html都涉及ms开头的东东，包括OOBE那个动画html！ -->
+  <style>
+	.city { margin: 10px 0; }
+	.temp { color: #201CFF; font-weight: bold; }        /* 温度 - 冰蓝 */
+	.feel { color: #00A8E8; }                            /* 体感 - 青蓝 */
+	.humid { color: #00D4FF; }                           /* 湿度 - 冰青 */
+	.wind { color: #7EE8FA; }                            /* 风速 - 浅冰蓝 */
+	.cloud { color: #8AA8C8; }                           /* 云量 - 灰蓝 */
+	.uv { color: #FFD700; }                              /* UV - 冰金 */
+	.sun { color: #00D4FF; }                             /* 日出日落 - 冰青 */
+
+.forecast-row {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #2A4A6A;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.forecast-day {
+  background: #E8F4F8;
+  border: 1px solid #B8E0F0;
+  border-radius: 6px;
+  padding: 4px 6px;
+  white-space: nowrap;
+}
+
+	.extra {
+	  display: block;
+	  margin-top: 6px;
+	  padding: 5px 10px;
+	  background: #201CFF;
+	  border-left: 3px solid #00D4FF;
+	  color: #E0F7FF;
+	  border-radius: 0 4px 4px 0;
+	  font-size: 14px;
+	}
+
+@media (prefers-color-scheme: dark) {
+	.temp { color: #7EE8FA; }                           /* 温度 - 亮冰蓝 */
+	.feel { color: #00D4FF; }                           /* 体感 - 冰青 */
+	.humid { color: #88E0FF; }                          /* 湿度 - 浅冰蓝 */
+	.wind { color: #B0F0FF; }                           /* 风速 - 极浅冰蓝 */
+	.cloud { color: #8AA8C8; }                          /* 云量 - 灰蓝 */
+	.uv { color: #FFE066; }                             /* UV - 柔金 */
+	.sun { color: #00D4FF; }                            /* 日出日落 - 冰青 */
+	
+	.forecast-row {
+	  color: #A0C0D0;
+	}
+	
+	.forecast-day {
+	  background: #1A2A40;
+	  border: 1px solid #2A4A6A;
+	}
+	
+	.extra {
+	  display: block;
+	  margin-top: 6px;
+	  padding: 5px 10px;
+	  background: #1512A0;
+	  border-left: 3px solid #00D4FF;
+	  color: #E0F7FF;
+	  border-radius: 0 4px 4px 0;
+	  font-size: 14px;
+	}
+}
+  </style>
+  <header>
+   <h1>齐喜的网站</h1>
+   <h6>公测内容，有bug欢迎反馈！</h6>
+   <!-- 汉堡菜单按钮 + 下拉 -->
+   <div class="nav-menu-toggle">
+	<div class="hamburger" onclick="this.classList.toggle('active')">
+	 <span></span> <span></span> <span></span>
+	</div>
+	<ul class="nav-dropdown">
+	 <li><a href='/'><b>首页</b></a></li>
+	 <li><a href='/product.html'><b>产品中心</b></a></li>
+	 <li><a href="/hengdian.html"><b>恒电虚拟公司</b></a></li>
+	 <li><a href='/code'><b>兑换码</b></a></li>
+	 <li><a href='/weather'>天气瞎报</a></li>
+	 <li><a href='https://subway.nb-qx.top/'><strong>虚拟地铁</strong></a></li>
+	 <li><a href='/resources'><b>资源中心</b></a></li>
+	 <li><a href='/about'><b>关于我</b></a></li>
+	</ul>
+   </div>
+  </header>
+ </head> <!-- header放head里就行 -->
+ <!-- 页面头部 -->
+ <body>
+  <main class="container">
+   <h2>😆天气瞎报</h2>
+   <h5>天气瞎报获取最新信息，但不能自动刷新，按<a href="/weather.html"><b>F5</b></a>以刷新。本服务不占用过多额度</h5>
+   <p>
+	<br>
+   </p>
+   <marquee scrollamount="4">
+	<b>添加了 本地 天气，全自动获取，我们不会收集您的隐私信息。</b>
+   </marquee>
+   <p>如果您遵守MIT许可证相关协议，您可以自由获取源代码用于任何用途，我们的源代码按“原样”提供，不提供任何形式的担保。<br><br></p>
+   <a href="/weather.html" download="weather.html"><b>下载</b></a>
+   <p><br></p>
+   <hr>
+   <p><br></p>
+   <!-- id用来区分不同城市，就像身份证一样 -->
+   <div class="city" id="local">
+	<b>本地天气：</b>加载中…
+   </div>
+   <div class="city" id="lemon">
+	<b>Lemon市：</b>加载中…
+   </div>
+   <div class="city" id="nb">
+	<b>NB总部：</b>加载中…
+   </div>
+   <div class="city" id="ptc">
+	<b>PTC市：</b>加载中…
+   </div>
+   <div class="city" id="hengdian">
+	<b>恒电区：</b>加载中…
+   </div>
+   <div class="city" id="utw">
+	<b>U星（Utw）:</b>加载中…
+   </div>
+   <div class="city" id="5u">
+	<b>5U公司：</b>加载中…
+   </div>
+   <div class="city" id="uvs">
+	<b>UVS公司：</b>加载中…
+   </div>
+	<div class="city" id="arctic">
+	<b>北极：</b>加载中…
+   </div>
+	<div class="city" id="ucts">
+	<b>UCTS：</b>加载中…
+   </div>
+	<div class="city" id="qqhr">
+	<b>GaoHanTu：</b>加载中…
+   </div>
+   <p>
+	<br>
+   </p>
+   <h2 id="weather_form">对照表</h2>
+   <p>我们使用emoji来表示天气状况。如您的设备不支持，请忽略。</p>
+   <p><b> ☀ = 晴 
+	 <br> 🌤 = 少云 
+	 <br> 🌥 = 多云 
+	 <br> ☁ = 阴天 
+	 <br> 🌫 = 雾 
+	 <br> 💧 = 毛毛雨 / 小雨 
+	 <br> 💦 = 大毛毛雨 
+	 <br> 🌧 = 中雨 / 中阵雨 
+	 <br> 🌧🌧 = 大雨 / 大阵雨 
+	 <br> 🧊 = 冻雨 
+	 <br> 🌨 = 小雪 
+	 <br> ❄ = 雪 / 中雪 
+	 <br> ❄❄ = 大雪 
+	 <br> 🌦 = 阵雨 
+ 	<br> 🌩 = 雷雨
+	 <br> ⛈️ = 雷暴 
+	 <br> ❓ = 【不支持的天气】 
+	 <br> NaN = 【不支持的数据】 
+	 <br> � = 【不支持的字符】</b>
+	<br>
+	我们暂不支持🌪🌬🌀🌈🔥🌊等。</p>
+  </main>
+  <!-- 从下面开始是核心代码 -->
+  <script>
+  // 这些是Tips库
+const advicePools = {
+  freezing: ["莫慌，在齐喜这里都不是事 ❄️", "高雅人士发出了尖锐的爆鸣声 🐧", "齐喜冬眠ing… 🛌", "速冻，在家宅着，选一个 🔛", "齐喜正在凝华，请您稍后询问。", "我在冰箱里写代码", "Tips：东北有时比北极冷。", "Tips：（本条Tips被冻坏了）"],
+  veryCold: ["哇哇哇有点冷啦 ❄️", "戴好手套 🧤", "四氧化二氮平衡开始受影响… ☁", "呼吸都结冰了，小心别把肺冻住 😮💨", "谁家氯化铵溶液洒了？ 💥", "Tips：我们的网站是Netlify托管的！天冷冻不坏！😆"],
+  cold: ["冷得想钻进Netlify服务器取暖 💻", "秋裤警告！再不穿就晚了 👖", "这温度…适合抱紧自己 🤗", "风一吹，灵魂都在打哆嗦 💨", "Tips：啊~啊~啊咦↑啊咦↑啊→啊↑啊↓啊~啊~ 🤪"],
+  cool: ["微凉刚刚好，适合瞎逛 🍂", "外套披着就行，风度与温度我都要 🧥", "U星人表示很舒适 😏", "空气清新，脑子清醒，就是手有点四了 🤚", "再暖和一点，我就去买海波 🛍", "Tips：阳光菇不喜欢阳光，以至于身体里生产出一点点阳光就会迫不及待地吐出来。"],
+  comfortable: ["完美天气！建议立刻出门浪一下 🌈", "这温度…连代码都跑得更快了 💻✨", "阳光温柔，风也懂事，今天值得开心 ☀️", "齐喜气象局认证：今日宜摸鱼 🐟", "Lemon湾再不钓鱼（等会，这里是Lemon市吗？）就要干涸了！ 🤔", "Tips：猜猜你要重新加载多少次才能再看到这条tip", "Tips：浅色模式看久了，可以试试深色模式！优化超好的（除了那几个标签）"],
+  warm: ["有点暖，但还能假装很酷 😎", "短袖上线，冰饮预备！🥤", "温馨提示：小心便携式计算机过热 💻🔥", "这温度…适合躲在树荫下发呆 🌳", "齐喜速报：那个在Lemon湾不幸溺水的人…活过来了！", "Tips：产品中心的图片点击/鼠标悬停会有动效，这个设计从v0.0.1开始就有了！"],
+  hot: ["热到能煎蛋了 🍳", "啊啊啊啊好热 🔥", "盼望冬天ing❄️", "齐喜正在蒸发，请您稍后询问。", "Tips：绑自定义域名一定记得反爬虫、反爬虫、反爬虫啊！不过这么热应该能把爬虫烤死了 🤔"],
+  scorching: ["温度接近U星熔岩 🌋", "谁家酒精喷灯点着了 🔥", "齐喜受热分解了 💥", "齐喜正在升华，请您稍后询问。", "Tips：电热套是个好东西。", "Tips：洗钉/铝的时候一定记得妥善处理生成的可燃气体啊！A星都因为这个着火了"],
+  rain: ["带伞了吗？没带就淋成落汤鸡 🐔", "水神今天加班了？🌧️", "洪水，不对，洪雪要把Lemon实验室给淹了", "这雨…适合在家躺平听歌 🎧"],
+  snow: ["下雪啦！ ❄", "建议堆个雪人 ⛄", "路面滑如溜冰场，请慢行 ⛸️", "哇哇哇哇哇 🧊", "提问！雪的形成是凝华还是凝固？ 📚", "Tips：东北并不是全年下雪。"]
+};
+
+// 随机选取Tips，运用Math.random
+function pick(arr) {
+  return arr[Math.floor(Math.random() * arr.length)] || "";
+}
+
+// 天气码转emoji
+// 这些数字是open-meteo固定的！转成emoji才能直观表现！
+function weatherCodeToEmoji(code) {
+  if (code === 0) return "☀";
+  if (code === 1) return "🌤️";
+  if (code === 2) return "⛅";
+  if (code === 3) return "☁️";
+  if (code >= 45 && code <= 48) return "🌫️";
+  if (code >= 51 && code <= 53) return "💧";
+  if (code >= 55 && code <= 57) return "💦";
+  if (code === 61) return "💧";
+  if (code === 63) return "🌧️";
+  if (code === 65) return "🌧🌧";
+  if (code >= 66 && code <= 67) return "🧊";
+  if (code === 71) return "🌨️";
+  if (code === 73) return "❄️";
+  if (code >= 75 && code <= 77) return "❄❄";
+  if (code === 80) return "🌦️";
+  if (code === 81) return "🌧️";
+  if (code === 82) return "🌧🌧";
+  if (code === 95) return "🌩";
+  if (code === 96) return "⛈️";
+  return "❓";
+}
+
+// 时间格式化（日出日落功能）
+// 网络上大部分“时间”都采用UNIX时间戳，转换一下才是小时：分钟：秒
+function formatTime(unix) {
+  const d = new Date(unix * 1000);
+  return d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
+}
+
+// 通用天气请求方法（建议保留）
+function getWeather(name, lat, lon, id) {
+  // 长难句起手 
+  const todayUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,wind_speed_10m,wind_direction_10m,uv_index,visibility&hourly=relative_humidity_2m,apparent_temperature&daily=sunrise,sunset,uv_index_max&timezone=Asia/Shanghai&forecast_days=1`;
+  fetch(todayUrl)
+	.then(r => r.json())
+	.then(data => {
+	  const cur = data.current;
+	  const hourly = data.hourly;
+	  const daily = data.daily;
+	  const h = new Date().getHours();
+	  const temp = cur.temperature_2m?.toFixed(1) ?? '?';
+	  const feels = (hourly.apparent_temperature?.[h] ?? cur.apparent_temperature)?.toFixed(1) ?? temp;
+	  const hum = (hourly.relative_humidity_2m?.[h] ?? cur.relative_humidity_2m)?.toFixed(0) ?? '?';
+	  const wind = cur.wind_speed_10m?.toFixed(1) ?? '?';
+	  const windDir = cur.wind_direction_10m ? Math.round(cur.wind_direction_10m) + '°' : '?';
+	  const cloud = cur.cloud_cover?.toFixed(0) ?? '?';
+	  const uv = cur.uv_index?.toFixed(1) ?? '?';
+	  const sunrise = formatTime(daily.sunrise[0]);
+	  const sunset = formatTime(daily.sunset[0]);
+	  const emoji = weatherCodeToEmoji(cur.weather_code);
+	  let extra = '';
+	  const tNum = parseFloat(temp);
+	  const hasRain = (parseFloat(cur.rain || 0) > 0.1) || (parseFloat(cur.showers || 0) > 0.1);
+	  const isSnow = [71, 73, 75, 77].includes(cur.weather_code);
+// 额外判定
+	  if (isSnow) extra = pick(advicePools.snow);
+	  else if (hasRain) extra = pick(advicePools.rain);
+	  else if (!isNaN(tNum)) {
+		if (tNum < -10) extra = pick(advicePools.freezing);
+		else if (tNum < 0) extra = pick(advicePools.veryCold);
+		else if (tNum <= 4) extra = pick(advicePools.cold);
+		else if (tNum <= 15) extra = pick(advicePools.cool);
+		else if (tNum <= 24) extra = pick(advicePools.comfortable);
+		else if (tNum <= 30) extra = pick(advicePools.warm);
+		else if (tNum <= 36) extra = pick(advicePools.hot);
+		else extra = pick(advicePools.scorching);
+	  }
+// 这些信息会通过id来传给html
+	  document.getElementById(id).innerHTML = `
+		<b>${name}</b> ${emoji} <br>
+		<span class="temp">${temp}℃</span>（体感<span class="feel">${feels}℃</span>）<br>
+		| 湿度<span class="humid">${hum}%</span><br>
+		| 风速<span class="wind">${wind}m/s</span>（风向大约${windDir}）<br>
+		| 云量<span class="cloud">${cloud}%</span><br>
+		| UV<span class="uv">${uv}</span><br>
+		| 日出<span class="sun">${sunrise}</span> 日落<span class="sun">${sunset}</span><br>
+		${extra ? `<span class="extra">${extra}</span>` : ''}
+		<b><br>5日天气瞎报：</b><br>
+	  `.replace(/\s+/g, ' ').trim(); // span是行内元素，和div差不多没啥语义
+
+	  // 请求5日预报
+	  // 依旧长难句
+	  return fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=Asia/Shanghai&forecast_days=5`);
+	})
+	.then(r => r.json())
+	.then(data => {
+	  const max = data.daily.temperature_2m_max;
+	  const min = data.daily.temperature_2m_min;
+	  const codes = data.daily.weather_code;
+	  let row = '<div class="forecast-row">';
+	  for (let i = 0; i < 5; i++) {
+		row += `<span class="forecast-day">${weatherCodeToEmoji(codes[i])} ${max[i].toFixed(0)}°/${min[i].toFixed(0)}°</span>`;
+	  }
+	  row += '</div>'; // 别忘了闭合啊！
+	  document.getElementById(id).insertAdjacentHTML('beforeend', row);
+	})
+	.catch(() => { // 有catch基本都是处理报错
+	  document.getElementById(id).innerHTML = `<b>${name}</b> ❌ 数据获取失败（信号塔被Utw炸了）`;
+	});
+}
+
+// 初始化forecast样式
+const forecastCSS = document.createElement('style');
+forecastCSS.textContent = `
+  .forecast-row { margin-top:8px;font-size:13px;color:#555; }
+  .forecast-day { display:inline-block;margin:2px 4px 2px 0;padding:3px 6px;background:#f0f8ff;border:1px solid #cce4ff;border-radius:5px;white-space:nowrap; }
+  @media (prefers-color-scheme: dark) {
+	.forecast-row { color: #A0C0D0; }
+	.forecast-day { background: #1A2A40;border:1px solid #2A4A6A; }
+  }
+`; // 这些都是CSS啦，就是上边那个class="forecast-row"！
+document.head.appendChild(forecastCSS);
+
+// 虚拟城市列表，公式：["城市名", 纬度, 经度, "id"]
+const cities = [
+  ["Lemon市", 45.7600, 126.6688, "lemon"],
+  ["NB总部", 39.9583, 116.3240, "nb"],
+  ["PTC市", 28.0000, 120.6994, "ptc"],
+  ["恒电区", 27.7333, 111.6500, "hengdian"],
+  ["5U公司", 37.4300, 118.6700, "5u"],
+  ["U星", 30.2741, 119.9135, "utw"],
+  ["UVS公司", 26.0000, 119.36, "uvs"],
+  ["北极", 89.9999, 114.5141, "arctic"],  // 北极经度随便填！地理课都学过吧
+  ["GaoHanTu", 47.2792, 123.9664, "qqhr"]
+];
+
+// 加载虚拟城市天气
+cities.forEach(([name, lat, lon, id]) => getWeather(name, lat, lon, id));
+
+// 上科技，IP定位获取本地经纬度，加载本地天气
+// 这个东东叫ipinfo，全自动获取你的所在位置（大部分是粗略位置啦～不会泄漏隐私的）
+fetch('https://ipinfo.io/json')
+  .then(r => r.json())
+  .then(ipData => {
+	const [lat, lon] = ipData.loc.split(',').map(Number);
+	// 拼接本地名称
+	const localName = `${ipData.city || '未知城市'}${ipData.region ? '·' + ipData.region : ''}(${ipData.country})`;
+	// 调用通用天气方法加载本地天气
+	getWeather(localName, lat, lon, 'local');
+  })
+  .catch(err => {
+	// 定位失败时的兜底提示
+	document.getElementById('local').innerHTML = `<b>你的本地</b> ❌ 数据获取失败（信号塔被Utw炸了）`;
+	console.log('IP定位失败：', err);
+  });
+</script>
+  <!-- 页脚 -->
+  <footer>
+   <p><b>© 2024-2026 </b><a href="https://space.bilibili.com/345281727">齐喜的频道</a> 本项目采用 MIT 许可证。</p>
+<span style="display: inline-flex; align-items: center;">
+  Powered by
+  <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">
+  <img src="pic/netlify.png" alt="Netlify" class="netlify-icon netlify-icon-light" style="height:32px;display:inline-block;margin-top:8px;">
+  <img src="pic/netlify-dark.png" alt="Netlify" class="netlify-icon netlify-icon-dark" style="height:32px;display:none;margin-top:8px;">
+  </a>
+  <style>
+	@media (prefers-color-scheme: dark) {
+	  .netlify-icon-light { display: none !important; }
+	  .netlify-icon-dark { display: inline-block !important; }
+	}
+  </style>
+</span>
+   <p><small>天气数据来源于 <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>，仅供娱乐。</small></p>
+   <p><small>友商推荐：<a href="https://yoyo-user-awa.github.io/UCTS/weather.html" target="_blank" rel="noopener noreferrer">UCTS 天气瞎报</a></small><a href="https://45d.cn/AWM/" target="_blank" rel="noopener noreferrer">&nbsp; <small>AWM官网</small></a></small></p>
+	   <p><small>版本 v0.2.21</small></p>
+  </footer>
+ </body>
+</html>

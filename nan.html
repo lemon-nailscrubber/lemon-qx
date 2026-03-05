@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh" translate="no">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#20C1FF">
+  <meta property="og:title" content="齐喜的网站：NaN">
+  <meta property="og:description" content="齐喜的网站报错了">
+  <meta property="og:image" content="./pic/mt.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:url" content="https://nailscrubber.netlify.app/">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#20C1FF">
+  <title>齐喜的网站--网页不见了</title>
+  <link rel="stylesheet" href="/style.css">
+ </head>
+ <body>
+  <!-- 页面头部 -->
+  <header style="position: relative;">
+   <h1>齐喜的网站</h1>
+   <h6>终于进来了，随便看看</h6>
+   <!-- 汉堡菜单按钮 + 下拉 -->
+   <div class="nav-menu-toggle">
+	<div class="hamburger" onclick="this.classList.toggle('active')">
+	 <span></span> <span></span> <span></span>
+	</div>
+	<ul class="nav-dropdown"><li>null</li>
+	</ul>
+   </div>
+  </header>
+  <!-- 主体内容 -->
+  <main class="container">
+  <div id="line1" style="display: none;">
+   <h1>NaN</h1>
+   <h2>啊叻，网站崩溃了！</h2>
+   </div>
+   <div id="rest" style="display: none;">
+   <p>你要找的内容蒸发了，点击<a href='#'>这里</a>返回主站。</p>
+   <p>
+	<br>
+   </p>
+   <p><small>错误原因：<code>Undefined</code></small></p>
+  </main>
+</div>
+<script>
+  if (!localStorage.getItem('hasSeenCrash')) {
+	setTimeout(() => {
+	  document.getElementById('line1').style.display = 'block';
+	  
+	  setTimeout(() => {
+		document.getElementById('rest').style.display = 'block';
+		localStorage.setItem('hasSeenCrash', '1');
+	  }, 500);
+	  
+	}, 1145);
+  } else {
+	document.getElementById('line1').style.display = 'block';
+	document.getElementById('rest').style.display = 'block';
+  }
+</script>
+ </body>
+</html>

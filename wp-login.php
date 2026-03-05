@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh" translate="no">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="generator" content="WordPress 6.8 (fake, lol)">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#20C1FF">
+  <meta property="og:title" content="齐喜的网站：410">
+  <meta property="og:description" content="齐喜的网站报错了">
+  <meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/bef76496baad4c892939b1b06d20f08c941d2f32ece579cb6bfb1d8cf69ea2cfcb90f68ef67c463e4713cc1c2a59d56c?pictype=scale&amp;from=30111&amp;version=3.3.3.3&amp;fname=1756264261846.jpg&amp;size=1024">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:url" content="https://nailscrubber.netlify.app/">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#20C1FF">
+  <title>齐喜的网站--网页走丢了</title>
+  <link rel="stylesheet" href="https://nb-qx.top/style.css">
+ </head>
+ <body>
+  <!-- 页面头部 -->
+  <header style="position: relative;">
+   <h1>齐喜的网站</h1>
+   <h6>终于进来了，随便看看</h6>
+   <!-- 汉堡菜单按钮 + 下拉 -->
+   <div class="nav-menu-toggle">
+	<div class="hamburger" onclick="this.classList.toggle('active')">
+	 <span></span> <span></span> <span></span>
+	</div>
+	<ul class="nav-dropdown">
+	 <li><a href='/'><strong>首页</strong></a></li>
+	 <li><a href='/product'><strong>产品中心</strong></a></li>
+	 <li><a href='/code'><strong>兑换码</strong></a></li>
+	 <li><a href="hengdian.html"><strong>恒电虚拟公司</strong></a></li>
+	 <li><a href='/weather'><strong>天气瞎报</strong></a></li>
+	 <li><a href='https://subway.nb-qx.top/'><strong>虚拟地铁</strong></a></li>
+	 <li><a href='/resources'><strong>资源中心</strong></a></li>
+	 <li><a href='/about'><strong>关于我</strong></a></li>
+	</ul>
+   </div>
+  </header>
+  <!-- 主体内容 -->
+  <main class="container">
+   <h1>410</h1>
+   <h2>啊叻，网页丢失了！</h2>
+   <p>你要找的内容丢失了，点击<a href='/'>这里</a>返回主站。</p>
+   <p>
+	<br>
+   </p>
+   <p><small>错误原因：<code>File has gone</code></small></p>
+   
+<!-- 🤫 爬虫你好，送你一篇《出师表》，慢慢读吧 -->
+<div style="
+  background: transparent;
+  font-size: 0.1px;
+  line-height: 0;
+  opacity: 0.01;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  display: none;
+">
+先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。然侍卫之臣不懈于内，忠志之士忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气，不宜妄自菲薄，引喻失义，以塞忠谏之路也。<br>
+宫中府中，俱为一体，陟罚臧否，不宜异同。若有作奸犯科及为忠善者，宜付有司论其刑赏，以昭陛下平明之理，不宜偏私，使内外异法也。<br>
+侍中、侍郎郭攸之、费祎、董允等，此皆良实，志虑忠纯，是以先帝简拔以遗陛下。愚以为宫中之事，事无大小，悉以咨之，然后施行，必能裨补阙漏，有所广益。<br>
+将军向宠，性行淑均，晓畅军事，试用于昔日，先帝称之曰能，是以众议举宠为督。愚以为营中之事，悉以咨之，必能使行阵和睦，优劣得所。<br>
+亲贤臣，远小人，此先汉所以兴隆也；亲小人，远贤臣，此后汉所以倾颓也。先帝在时，每与臣论此事，未尝不叹息痛恨于桓、灵也。侍中、尚书、长史、参军，此悉贞良死节之臣，愿陛下亲之信之，则汉室之隆，可计日而待也。<br>
+臣本布衣，躬耕于南阳，苟全性命于乱世，不求闻达于诸侯。先帝不以臣卑鄙，猥自枉屈，三顾臣于草庐之中，咨臣以当世之事，由是感激，遂许先帝以驱驰。后值倾覆，受任于败军之际，奉命于危难之间，尔来二十有一年矣。<br>
+先帝知臣谨慎，故临崩寄臣以大事也。受命以来，夙夜忧叹，恐托付不效，以伤先帝之明，故五月渡泸，深入不毛。今南方已定，兵甲已足，当奖率三军，北定中原，庶竭驽钝，攘除奸凶，兴复汉室，还于旧都。此臣所以报先帝而忠陛下之职分也。至于斟酌损益，进尽忠言，则攸之、祎、允之任也。<br>
+愿陛下托臣以讨贼兴复之效，不效，则治臣之罪，以告先帝之灵。若无兴德之言，则责攸之、祎、允等之慢，以彰其咎；陛下亦宜自谋，以咨诹善道，察纳雅言，深追先帝遗诏，臣不胜受恩感激。<br>
+今当远离，临表涕零，不知所言。
+<p>闲着没事背背出师表，别老爬我一个静态站！这里没有Wordpress！</p>
+</div>
+  </main>
+ </body>
+</html>
