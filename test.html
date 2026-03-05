@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh" translate="no">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#20C1FF">
+  <meta property="og:title" content="齐喜的网站：403">
+  <meta property="og:description" content="齐喜的网站报错了">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:url" content="https://nailscrubber.netlify.app/">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#20C1FF">
+  <title>齐喜的网站--网页走丢了</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+/* 新版Grid布局 */
+section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* 卡片样式 */
+.product-card {
+  background: white;
+  border-radius: 16px; /* 万能的圆角 */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(32, 28, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* 横屏/宽屏时双列 */
+@media (min-width: 768px) {
+  section {
+	grid-template-columns: 1fr 1fr;  /* 两列 */
+  }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .product-card {
+	background: #0F1628;
+	border-color: rgba(0, 212, 255, 0.3);
+  }
+}
+
+@media (min-width: 768px) {
+  .product {
+	flex-direction: row;
+	align-items: flex-start;
+  }
+  
+  .product img {
+	width: 120px;
+	height: 120px;
+	flex-shrink: 0;
+  }
+  
+  .product-info {
+	flex: 1;
+  }
+}
+
+/* 竖屏时保持上下结构 */
+@media (max-width: 767px) {
+  .product {
+	flex-direction: column;
+  }
+  
+  .product img {
+	width: 100px;    
+	height: 100px;
+	align-self: center;
+  }
+}
+
+.product a {
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+.product-info[data-tag]::before {
+  display: inline-block;
+  font-size: 0.85em;
+  padding: 3px 10px;
+  border-radius: 12.5px;
+  margin-right: 6px;
+  margin-bottom: 6;
+  font-weight: bold;
+  content: "";
+}
+
+/* 各种 tag 类型 */
+.product-info[data-tag="hot"]::before {
+  content: "🔥 热销";
+  background: #ffebee;
+  color: #c62828;
+}
+.product-info[data-tag="new"]::before {
+  content: "🆕 新品";
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.product-info[data-tag="HSF"]::before {
+  content: "😆 HSF工厂";
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.product-info[data-tag="wrong"]::before {
+  content: "❌ 已废止";
+  background: #e3a2ad;
+  color: #d51510;
+}
+.product-info[data-tag="Pro"]::before {
+  content: "⭐ Pro";
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.product-info[data-tag="recommend"]::before {
+  content: "⭐ 推荐";
+  background: #f3f5f5;
+  color: #6a1b9a;
+}
+</style>
+  <!-- 页面头部 -->
+  <header style="position: relative;">
+   <h1>齐喜的网站</h1>
+   <h6>终于进来了，随便看看</h6>
+   <!-- 汉堡菜单按钮 + 下拉 -->
+   <div class="nav-menu-toggle">
+	<div class="hamburger" onclick="this.classList.toggle('active')">
+	 <span></span> <span></span> <span></span>
+	</div>
+	<ul class="nav-dropdown">
+	 <li><a href="/"><strong>首页</strong></a></li>
+	 <li><a href="/product"><strong>产品中心</strong></a></li>
+	 <li><a href="/code"><strong>兑换码</strong></a></li>
+	 <li><a href="hengdian.html"><strong>恒电虚拟公司</strong></a></li>
+	 <li><a href="/weather"><strong>天气瞎报</strong></a></li>
+	 <li><a href="https://subway.nb-qx.top/"><strong>虚拟地铁</strong></a></li>
+	 <li><a href="/resources"><strong>资源中心</strong></a></li>
+	 <li><a href="/about"><strong>关于我</strong></a></li>
+	</ul>
+   </div>
+  </header>
+ </head>
+ <body>
+  <!-- 主体内容 -->
+  <main class="container">
+   <h3 class="category-title">测试</h3>
+   <div class="product-card">
+	<div class="product">
+	 <img loading="lazy" src="./pic/qxldxdj.jpg" alt="球形漏斗洗钉机">
+	 <div class="product-info">
+	  <h3>球形漏斗洗钉机</h3>
+	  <p>高级的洗钉机。有一根长长的排液管，本身体积不大但是很方便排废液，但容易穿模。无需搭配保护液使用。</p>
+	  <a href="https://s.nobook.com/?id=195592" rel="noopener noreferrer" target="_blank">点击可以体验</a>
+	 </div>
+	</div>
+   </div>
+   <div class="product-card">
+	<div class="product">
+	 <img loading="lazy" src="./pic/gsxtj.jpg" alt="干式洗铜机">
+	 <div class="product-info" data-tag="wrong">
+	  <h3>干式洗铜机</h3>
+	  <p>不损耗的洗铜方法，但因为太吃操作bug还太多，被废止了。</p>
+	  <a href="https://b23.tv/xgzQsdn" target="_blank" rel="noopener noreferrer" class="free-link">点击查看3L经营干式洗铜机的证据</a>
+	 </div>
+	</div>
+   </div>
+  </main>
+ </body>
+</html>
