@@ -1,6 +1,4 @@
 	// 映射表部分
-	// 你咋进来的谁让你看源代码的了
-	// 算了你想看就看吧
 	// 呵呵啊哈哈哈哈
 	const hashToUrlMap = {
 	  "669f4259d89b0af04c928b79dffba61b31b5779b95f55caabd716f75b7d9d842": "https://s.nobook.com/index.html?id=205866", //炸掉一切！
@@ -94,19 +92,3 @@
 	  jumpContainer.style.display = "none";
 	  input.focus();
 	}
-	
-	// 🚫 阻止 F12、Ctrl+Shift+I、Ctrl+U 等
-  document.addEventListener('keydown', (e) => {
-	if (
-	  e.key === 'F12' ||
-	  (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || // DevTools
-	  (e.ctrlKey && e.key === 'u') ||                                 // 查看源码
-	  (e.ctrlKey && e.key === 's') ||                                 // 保存网页
-	  (e.ctrlKey && e.key === 'p')                                    // 打印
-	) {
-	  e.preventDefault();
-	  e.stopPropagation();
-	  showHint('嘘——这里禁止偷看！(。・ω・。)');
-	  return false;
-	}
-  });
