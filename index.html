@@ -137,6 +137,31 @@
 	</div>
    </div>
   </div>
+  <script>
+// 检测是否同意了呵呵啊哈哈哈哈的协议
+	function acceptAgreement() {
+	  // 同意协议：隐藏弹窗
+	  document.getElementById('agreementModal').style.display = 'none';
+	  // 记录到 localStorage，避免下次再弹
+	  localStorage.setItem('userAgreed', 'true');
+	}
+
+	function declineAgreement() {
+	  // 拒绝协议：立即发生爆炸
+	  if (confirm("拒绝协议将无法使用本服务，是否退出？\n请放心，我们会依照相关法律严格保护您的个人信息，不会外泄。")) {
+		window.history.back();
+	  }
+	}
+
+	// 检查用户是否已经同意过，避免重复轰炸Utw
+	window.onload = function() {
+	  const hasAgreed = localStorage.getItem('userAgreed');
+	  if (hasAgreed === 'true') {
+		document.getElementById('agreementModal').style.display = 'none';
+	  }
+	  // 否则保持显示（默认显示）
+	};
+  </script>
   <!-- 页面头部 -->
   <header style="position: relative;">
    <h1>齐喜的网站</h1>

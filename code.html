@@ -241,8 +241,9 @@
    <br>· 我们新增了Giscus集成。后端太难做了不如找一些免费API。但是这个需要登录Github才能用啊<br>
    <br>· 官方最近修复了天平bug，也就是之前可以把烧杯掉入虚空那个特性。同时这个bug的修复引发了另一个bug：烧杯里套一个小烧杯，里面再套一个试管，放电子天平上会鬼畜。NB实验室的逆天特性迟早有一天被用完<br>
    <br>· 曼波告诉我说物理实验室又下陨石雨了。经过我们的分析发现这些陨石含有CaMgSi<sub>2</sub>O<sub>6</sub>。<br></p>
-   <hr><p><br></p><details>
-   <summary><small>普通Forms评论提交</small></summary>
+   <hr><p><br></p>
+   <details open>
+   <summary><small>普通Forms评论提交（有人看不见展开按钮，只能设置成默认展开了）</small></summary>
    <form method="POST" name="discus" netlify class="comment-form" action="/_thankyou.html">
 	<!-- 防机器人隐藏字段（别删！） -->
 	<input type="hidden" name="form-name" value="discus">
@@ -260,7 +261,8 @@
 	</div>
 	<!-- 提交按钮 -->
 	<button type="submit" style="background: #0070f3; color: white; border: none; padding: 0.75rem 1.5rem; font-size: 1rem; border-radius: 4px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#0059c4'" onmouseout="this.style.background='#0070f3'">提交</button>
-   </form></details>
+   </form>
+   </details>
    <p><br></p>
 <script src="https://giscus.app/client.js"
 		data-repo="lemon-nailscrubber/lemon-qx"
