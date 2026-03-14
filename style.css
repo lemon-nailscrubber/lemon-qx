@@ -20,7 +20,7 @@ body {
 /* 温柔版 - 只针对链接 */
 a {
   text-decoration: none;
-  color: #201CFF;
+  color: #20C1FF;
 }
 
 strong {
@@ -82,15 +82,15 @@ header::before {
   width: 2px;
   height: 100%;
   background-color: #E8F4F8;
-  pointer-events: none; /* 防止影响点击/交互 */
-  z-index: -1; /* 放在背景层，避免遮挡文字 */
+  pointer-events: none;
+  z-index: -1;
 }
 
 header h1 {
   font-size: 2.8rem;
   margin-bottom: 0.4rem;
   color: white;
-  text-shadow: 0 0 12px rgba(0, 212, 255, 0.8); /* 冰蓝辉光 */
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.8);
 }
 
 .container {
@@ -211,7 +211,7 @@ footer {
 
 /* 提示滚动条 —— 冰蓝风格（传承保留😏） */
 marquee {
-  background-color: #D6F0FF; /* 淡冰蓝 */
+  background-color: #D6F0FF;
   padding: 10px;
   border-left: 4px solid var(--ice);
   margin-bottom: 20px;
@@ -226,13 +226,16 @@ marquee {
 	width: 90%;
 	padding: 15px;
   }
+  
   header h1 {
 	font-size: 1.6rem;
   }
+  
   .product {
 	flex-direction: column;
 	align-items: flex-start;
   }
+  
   .product img {
 	align-self: center;
   }
@@ -408,9 +411,11 @@ marquee {
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(7px, 6px);
 }
+
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
 }
@@ -458,10 +463,10 @@ marquee {
 /* 深色模式 - 冰蓝主题 */
 @media (prefers-color-scheme: dark) {
   :root {
-	--bg-dark: #0A0E1A; /* 深海蓝 */
-	--text-dark: #E0F7FF; /* 冰白 */
-	--ice-dark: #00D4FF; /* 冰蓝 */
-	--header-blue: #1A1F6C; /* 深蓝 */
+	--bg-dark: #0A0E1A;
+	--text-dark: #E0F7FF;
+	--ice-dark: #00D4FF;
+	--header-blue: #1A1F6C;
   }
 
   body {
@@ -474,17 +479,17 @@ marquee {
 	color: white;
   }
 
-	header::before {
-	  content: '';
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  width: 2px;
-	  height: 100%;
-	  background-color: #0A0E1A;
-	  pointer-events: none; /* 防止影响点击/交互 */
-	  z-index: -1; /* 放在背景层，避免遮挡文字 */
-	}
+  header::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 2px;
+	height: 100%;
+	background-color: #0A0E1A;
+	pointer-events: none;
+	z-index: -1;
+  }
 
   header h1 {
 	text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
@@ -695,7 +700,6 @@ marquee {
   flex-shrink: 0;
   grid-area: 1 / 2;
 }
-}
 
 /* 内容区：保证即使没图也居左 */
 .resource-content {
@@ -788,18 +792,18 @@ marquee {
 	color: var(--ice-dark);
   }
 
-.resource-thumb {
-  width: 60px !important;
-  height: 60px !important;
-  min-width: 60px;
-  min-height: 60px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  flex-shrink: 0;
-  grid-area: 1 / 2;
-}
+  .resource-thumb {
+	width: 60px !important;
+	height: 60px !important;
+	min-width: 60px;
+	min-height: 60px;
+	object-fit: cover;
+	border-radius: 8px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(0, 212, 255, 0.3);
+	flex-shrink: 0;
+	grid-area: 1 / 2;
+  }
 }
 
 /* 评论区整体 */
