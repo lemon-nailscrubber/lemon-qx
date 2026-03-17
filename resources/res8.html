@@ -52,53 +52,6 @@
 		}
 	  }
 	};
-	
-	(function shield() {
-	  // 右键菜单
-	  document.addEventListener('contextmenu', e => {
-		e.preventDefault();
-		floatMessage("曼波～");
-	  });
-
-	  // ⌨️ 拦截快捷键
-	  document.addEventListener('keydown', e => {
-		// F12
-		if (e.key === 'F12') {
-		  e.preventDefault();
-		  warn();
-		  return false;
-		}
-		// Ctrl + Shift + I / C（开发者工具）
-		if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C')) {
-		  e.preventDefault();
-		  warn();
-		  return false;
-		}
-		// Ctrl + U（查看网页源代码）
-		if (e.ctrlKey && e.key === 'u') {
-		  e.preventDefault();
-		  warn();
-		  return false;
-		}
-		// Alt + Enter（部分浏览器属性/全屏）
-		if (e.altKey && e.key === 'Enter') {
-		  e.preventDefault();
-		  warn();
-		  return false;
-		}
-	  });
-
-	  // 🕵️ 尝试检测 DevTools（娱乐性防护）
-	  const detector = /./;
-	  detector.toString = () => {
-		throw new Error('DevTools detected');
-	  };
-	  console.log('%c ', detector);
-
-	  function warn() {
-		alert("该操作已被禁用。");
-	  }
-	})();
   </script>
   <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
   </script>
