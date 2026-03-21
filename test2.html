@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh" translate="no">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#4CAF50">
+  <meta property="og:title" content="齐喜的网站：加密器">
+  <meta property="og:description" content="利用base64伪装加密🥸">
+  <meta property="og:image" content="./pic/mt.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:url" content="https://nailscrubber.netlify.app/">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#4CAF50">
+  <title>齐喜的网站--网页不见了</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+  <link rel="stylesheet" href="https://nb-qx.top/style.css">
+  <style>
+	textarea, input[type="password"] {
+	  width: 100%;
+	  padding: 12px;
+	  margin: 10px 0;
+	  border: 2px solid #4CAF50;
+	  border-radius: 8px;
+	  font-size: 16px;
+	  box-sizing: border-box;
+	}
+	textarea { height: 120px; resize: vertical; }
+	button {
+	  background: #4CAF50;
+	  color: white;
+	  border: none;
+	  padding: 12px 24px;
+	  margin: 10px 5px;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  font-size: 16px;
+	}
+	button:hover { background: #0091CF; }
+	.result {
+	  margin-top: 20px;
+	  padding: 15px;
+	  border-radius: 8px;
+	  word-break: break-all;
+	  display: none;
+	}
+  </style>
+ </head>
+ <body>
+  <!-- 页面头部 -->
+  <header style="position: relative;">
+   <h1>齐喜的网站</h1>
+   <h6>终于进来了，随便看看</h6>
+   <!-- 汉堡菜单按钮 + 下拉 -->
+   <div class="nav-menu-toggle">
+	<div class="hamburger" onclick="this.classList.toggle('active')">
+	 <span></span> <span></span> <span></span>
+	</div>
+	<ul class="nav-dropdown">
+	 <li><a href='/'><strong>首页</strong></a></li>
+	 <li><a href='/product'><strong>产品中心</strong></a></li>
+	 <li><a href='/code'><strong>兑换码</strong></a></li>
+	 <li><a href="hengdian.html"><strong>恒电虚拟公司</strong></a></li>
+	 <li><a href='/weather'><strong>天气瞎报</strong></a></li>
+	 <li><a href='https://subway.nb-qx.top/'><strong>虚拟地铁</strong></a></li>
+	 <li><a href='/resources'><strong>资源中心</strong></a></li>
+	 <li><a href='/about'><strong>关于我</strong></a></li>
+	</ul>
+   </div>
+  </header>
+  <!-- 主体内容 -->
+  <main class="container">
+	<h2>🔒 齐喜的加密器</h2>
+	<p>仅供娱乐，请不要用于真实机密文件。</p>
+	
+	<label>内容：</label>
+	<textarea id="input" placeholder="比如：齐喜喜欢四明治"></textarea>
+	
+	<label>密码：</label>
+	<input type="password" id="password" placeholder="至少8位">
+	
+	<button onclick="encrypt()">加密</button>
+	<button onclick="decrypt()">解密</button>
+
+	<div class="result" id="output"></div>
+  </main>
+
+  <script>
+	function encrypt() {
+	  const input = document.getElementById('input').value.trim();
+	  const password = document.getElementById('password').value;
+	  const outputEl = document.getElementById('output');
+	  
+	  if (!input || !password) return alert('请输入内容和密码！');
+	  if (password.length < 8) return alert('密码至少8位哦～');
+
+	  try {
+		// 使用密码作为密钥，自动派生（CryptoJS 内部处理）
+		const encrypted = CryptoJS.AES.encrypt(input, password).toString();
+		outputEl.textContent = encrypted;
+		outputEl.style.display = 'block';
+	  } catch (e) {
+		alert('加密失败：' + e.message);
+	  }
+	}
+
+	function decrypt() {
+	  const input = document.getElementById('input').value.trim();
+	  const password = document.getElementById('password').value;
+	  const outputEl = document.getElementById('output');
+	  
+	  if (!input || !password) return alert('请输入内容和密码！');
+
+	  try {
+		const decrypted = CryptoJS.AES.decrypt(input, password);
+		const plaintext = decrypted.toString(CryptoJS.enc.Utf8);
+		
+		if (!plaintext) throw new Error('密码错误或内容无效');
+		
+		outputEl.textContent = plaintext;
+		outputEl.style.display = 'block';
+	  } catch (e) {
+		alert('解密失败！可能是密码不对，或者这不是加密过的内容 😅');
+	  }
+	}
+  </script>
+  </body>
+  </html>

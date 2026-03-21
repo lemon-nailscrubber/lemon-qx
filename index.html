@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme-color" content="#20C1FF">
+  <meta name="theme-color" content="#4CAF50">
   <meta name="filename" content="index.html">
   <meta property="og:title" content="齐喜的网站">
   <meta property="og:description" content="齐喜的洗钉机幻想">
   <meta property="og:image" content="https://nb-qx.top/pic/dydxdy.jpg">
   <meta property="og:url" content="https://nb-qx.top/">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="#20C1FF">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#4CAF50">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="1024x1024" href="/1024.png">
   <link rel="manifest" href="/manifest.json">
   <meta name="application-name" content="齐喜的网站">
-  <meta name="msapplication-TileColor" content="#20C1FF">
+  <meta name="msapplication-TileColor" content="#4CAF50">
   <meta name="msapplication-TileImage" content="/144.png">
   <!-- 齐喜为不同设备优化下了很大心思 -->
   <title>齐喜的网站</title>
@@ -143,19 +143,20 @@
 	  // 同意协议：隐藏弹窗
 	  document.getElementById('agreementModal').style.display = 'none';
 	  // 记录到 localStorage，避免下次再弹
-	  localStorage.setItem('userAgreed', 'true');
+	  localStorage.setItem('hhhhh', 'true');
 	}
 
 	function declineAgreement() {
 	  // 拒绝协议：立即发生爆炸
 	  if (confirm("拒绝协议将无法使用本服务，是否退出？\n请放心，我们会依照相关法律严格保护您的个人信息，不会外泄。")) {
 		window.history.back();
+		window.location.href="about:blank"
 	  }
 	}
 
 	// 检查用户是否已经同意过，避免重复轰炸Utw
 	window.onload = function() {
-	  const hasAgreed = localStorage.getItem('userAgreed');
+	  const hasAgreed = localStorage.getItem('hhhhh');
 	  if (hasAgreed === 'true') {
 		document.getElementById('agreementModal').style.display = 'none';
 	  }
@@ -188,8 +189,8 @@
    <!-- 简介 -->
    <section>
 	<h2>首页</h2>
-	<div style="text-align: center; padding: 2rem 0; font-size: 4rem;">😭</div>
-	<p>Orgent从此离开了NB，以及整个B站…
+	<div style="text-align: center; padding: 2rem 0; font-size: 4rem;">🥪</div>
+	<p>齐喜喜欢吃四明治
 	 <br>
 	<p></p>
    </section>
@@ -197,7 +198,7 @@
    <h2>广告与通知</h2>
   <a href="https://www.bilibili.com/video/BV1MBvfBNE96" target="_blank" rel="noopener noreferrer" title="齐喜精选广告"><img src="./pic/ad6.jpeg" alt="广告2"></a> <a href="https://m.bilibili.com/video/BV1iHzMBmEgm" target="_blank" rel="noopener noreferrer"><img src="./pic/ad4.png" alt="这是广告"></a>
    <p><strong>公告： 
-	 <br></strong>齐喜的网站不在收取Lemon币，望周知。
+	 <br></strong>我们有后端了，但还没正式上线。
 	<br>
 	<b>网站会尝试自动跟随系统深色模式，如不适请关闭设备深色模式。</b></p>
    <p>
@@ -224,7 +225,7 @@
 	<h2>其它软件和服务</h2>
 	<p>推荐一些其它的网站。</p>
 	<div class="other-links">
-   <a href="https://utw.pages.dev/sydex.html" target="_blank" rel="noopener noreferrer">Utw官网</a><a href='https://yoyo-user-awa.github.io/UCTS' target="_blank" rel="noopener noreferrer">UCTS的网站 </a> <a href="https://fafat.uuk.pp.ua/" target="_blank" rel="noopener noreferrer">Fafat的网站 </a> <a href="https://www.baidu.com/" rel="noopener noreferrer">百度官网</a> <a href="https://pipetrainingcamp.github.io/" target="_blank" rel="noopener noreferrer">PTC官网</a><a href="https://uwls.pages.dev" target="_blank" rel="noopener noreferrer">UwLS的网站</a>
+   <a href="https://utw.pages.dev/sydex.html" target="_blank" rel="noopener noreferrer">Utw官网</a><a href='https://yoyo-user-awa.github.io/UCTS' target="_blank" rel="noopener noreferrer">UCTS的网站 </a> <a href="https://fafat.uuk.pp.ua/" target="_blank" rel="noopener noreferrer">Fafat的网站 </a> <a href="https://www.baidu.com/" rel="noopener noreferrer">百度官网</a> <a href="https://pipetrainingcamp.github.io/" target="_blank" rel="noopener noreferrer">PTC官网</a><a href="https://87676fb1.pinme.dev/UwLS.html" target="_blank" rel="noopener noreferrer">UwLS的网站<small>（一辈子都进不去他把127.0.0.1封禁了）</small></a>
 	</div>
 	<p><small>仅供娱乐。</small></p>
    </section>
