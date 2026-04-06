@@ -210,7 +210,7 @@ footer {
 }
 
 /* 提示滚动条 —— 春分绿色风格（传承保留😏） */
-marquee {
+marquee {    /* 齐喜喜欢四明治和marquee */
   background-color: #E8F5E9;
   padding: 10px;
   border-left: 4px solid var(--spring);
@@ -383,33 +383,65 @@ marquee {
   display: block;
 }
 
-/* 汉堡菜单 - 白色变春分绿 */
+/* 汉堡菜单 - 左上角固定 + 液态玻璃背景 + 自动颜色反转 */
 .nav-menu-toggle {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 10;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 
+	0 4px 16px rgba(0, 0, 0, 0.1),
+	inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
+  box-shadow: 
+	0 6px 20px rgba(0, 0, 0, 0.15),
+	inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .hamburger {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 22px;
+  width: 26px;
+  height: 20px;
   cursor: pointer;
+  position: relative;
 }
 
+/* 汉堡线条 - 使用mix-blend-mode实现自动颜色反转 */
 .hamburger span {
   display: block;
-  height: 3px;
-  background: white;
+  height: 2.5px;
+  background: #000;
   border-radius: 2px;
-  transition: transform 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  mix-blend-mode: difference;
+  position: relative;
+}
+
+/* 备用方案：不支持mix-blend-mode时使用阴影实现对比 */
+@supports not (mix-blend-mode: difference) {
+  .hamburger span {
+	background: #333;
+	box-shadow: 
+	  0 0 0 1px rgba(10, 20, 10, 0.65) ,
+	  0 0 0 2px rgba(0,0,0,0.1);
+  }
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(7px, 6px);
+  transform: rotate(45deg) translate(6px, 6px);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -417,47 +449,91 @@ marquee {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* —— 浅色模式：汉堡菜单 —— */
+/* —— 浅色模式：下拉菜单 —— */
 .nav-dropdown {
   display: none;
   position: absolute;
   right: 0;
-  top: 39px;
-  background: #F1F8E9;
-  backdrop-filter: blur(8px);
-  border-radius: 10px;
+  top: calc(100% + 8px);
+  background: rgba(241, 248, 233, 0.75);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
-  min-width: 160px;
-  border: 1px solid var(--spring);
-  padding: 4px;
+  box-shadow: 0 8px 32px rgba(46, 125, 50, 0.25);
+  min-width: 180px;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  padding: 6px;
+  /* 新增：最大高度和内部滚动 */
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  /* 平滑滚动 */
+  scroll-behavior: smooth;
+  /* 滚动条样式 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(76, 175, 80, 0.5) transparent;
 }
 
-.hamburger.active + .nav-dropdown {
+/* Webkit 浏览器滚动条样式 */
+.nav-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.nav-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.nav-dropdown::-webkit-scrollbar-thumb {
+  background-color: rgba(76, 175, 80, 0.5);
+  border-radius: 3px;
+}
+
+.nav-dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(76, 175, 80, 0.7);
+}
+
+.hamburger.active ~ .nav-dropdown,
+.nav-menu-toggle:has(.hamburger.active) .nav-dropdown {
   display: block;
+  animation: slideDown 0.25s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+	opacity: 0;
+	transform: translateY(-10px);
+  }
+  to {
+	opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+.nav-dropdown li {
+  list-style: none;
 }
 
 .nav-dropdown li a {
   color: #2E7D32;
   text-decoration: none;
   font-size: 15px;
-  padding: 12px 20px;
+  padding: 12px 18px;
   display: block;
   text-align: center;
   transition: all 0.2s;
-  border-radius: 6px;
-  margin: 2px 6px;
+  border-radius: 8px;
+  margin: 2px 0;
   background: transparent;
+  font-weight: 500;
 }
 
 .nav-dropdown li a:hover {
   background: rgba(76, 175, 80, 0.15);
   color: #1B5E20;
-  transform: translateX(2px);
-  transition: all 0.2s ease-in-out;
+  transform: translateX(4px);
 }
 
 /* ============ 资源中心 - 博客/信息流样式 ============ */
@@ -893,11 +969,35 @@ marquee {
 	background: #0A1A0A;
   }
 
-  /* 下拉菜单 */
+  /* 下拉菜单 - 深色模式 + 内部滚动 */
   .dropdown-content,
   .nav-dropdown {
 	background: rgba(10, 20, 10, 0.8);
 	border: 1px solid rgba(78, 175, 80, 0.4);
+	/* 内部滚动 - 深色模式 */
+	max-height: calc(100vh - 100px);
+	overflow-y: auto;
+	scroll-behavior: smooth;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(76, 175, 80, 0.5) transparent;
+  }
+
+  /* Webkit 滚动条 - 深色 */
+  .nav-dropdown::-webkit-scrollbar {
+	width: 6px;
+  }
+
+  .nav-dropdown::-webkit-scrollbar-track {
+	background: transparent;
+  }
+
+  .nav-dropdown::-webkit-scrollbar-thumb {
+	background-color: rgba(76, 175, 80, 0.5);
+	border-radius: 3px;
+  }
+
+  .nav-dropdown::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(76, 175, 80, 0.7);
   }
 
   .dropdown-content a,
