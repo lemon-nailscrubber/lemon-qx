@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#4CAF50">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="哈哈哈" content="哈哈哈">
+  <meta property="og:title" content="HTTP状态码对照表">
+  <meta property="og:description" content="常见的404、502、403都是什么？">
+  <meta property="og:image" content="https://nb-qx.top/pic/dydxdy.jpg">
+  <meta property="og:url" content="https://nb-qx.top/resources/res9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#4CAF50">
+  <title>齐喜的网站--HTTP状态码对照表</title>
+  <!-- Favicon -->
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <meta name="application-name" content="齐喜的网站">
+  <meta name="msapplication-TileColor" content="#4CAF50">
+  <meta name="msapplication-TileImage" content="/144.png">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+	main {
+	  color: #000;
+	}
+	table {
+	  width: 100%;
+	  max-width: 80px;
+	  margin: 0 auto;
+	  border-collapse: collapse;
+	  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	  background: white;
+	}
+	th, td {
+	  padding: 12px 12px;
+	  text-align: left;
+	  border-bottom: 1px solid #ddd;
+	}
+	th {
+	  background-color: #4CAF50;
+	  color: white;
+	}
+	tr:hover {
+	  background-color: #f5f5f5;
+	}
+	.code {
+	  font-weight: bold;
+	  color: #2c3e50;
+	}
+  </style>
+ </head>
+ <body>
+  <!-- 页面头部 -->
+  <header>
+   <h1>齐喜的网站</h1>
+   <h6>HTTP状态码都有哪些？</h6>
+   <!-- 汉堡菜单按钮 + 下拉 -->
+   <div class="nav-menu-toggle">
+	<div class="hamburger" onclick="this.classList.toggle('active')">
+	 <span></span> <span></span> <span></span>
+	</div>
+	<ul class="nav-dropdown">
+	 <li><a href='/'><strong>首页</strong></a></li>
+	 <li><a href='/product'><strong>产品中心</strong></a></li>
+	 <li><a href="../hengdian.html"><strong>恒电虚拟公司</strong></a></li>
+	 <li><a href='/code'><strong>兑换码</strong></a></li>
+	 <li><a href='/weather'><strong>天气瞎报</strong></a></li>
+	 <li><a href='https://subway.nb-qx.top/'><strong>虚拟地铁</strong></a></li>
+	 <li><a href='/resources'>资源中心</a></li>
+	 <li><a href='/about'><strong>关于我</strong></a></li>
+	</ul>
+   </div>
+  </header>
+  <!-- 主体内容 -->
+  <main class="container">
+<h2>📄 HTTP 状态码大全</h2>
+
+<table>
+  <thead>
+	<tr>
+	  <th>状态码</th>
+	  <th>名称</th>
+	  <th>说明</th>
+	</tr>
+  </thead>
+  <tbody>
+	<!-- 1xx 信息响应 -->
+	<tr><td class="code">100</td><td>Continue</td><td>没啥毛病，继续</td></tr>
+	<tr><td class="code">101</td><td>Switching Protocols</td><td>换个协议呗，我要高大上的Websocket！🚀</td></tr>
+	<tr><td class="code">102</td><td>Processing</td><td>（WebDAV）服务器处理ing…</td></tr>
+	<tr><td class="code">103</td><td>Early Hints</td><td>内容马上过来！我先给你个预告证明我没崩溃</td></tr>
+
+	<!-- 2xx 成功 -->
+	<tr><td class="code">200</td><td>OK</td><td>成功！</td></tr>
+	<tr><td class="code">201</td><td>Created</td><td>成功！并且创建了个新的资源/页面</td></tr>
+	<tr><td class="code">202</td><td>Accepted</td><td>成功接收！但还没处理</td></tr>
+	<tr><td class="code">203</td><td>Non-Authoritative Information</td><td>返回的信息可能来自第三方服务器！换人了！</td></tr>
+	<tr><td class="code">204</td><td>No Content</td><td>成功！但是啥也没返回</td></tr>
+	<tr><td class="code">205</td><td>Reset Content</td><td>成功！用户代理需要重置一下文档视图</td></tr>
+	<tr><td class="code">206</td><td>Partial Content</td><td>（用于断点续传，断断续续传）你要五分之三块蛋糕，给你切好了！</td></tr>
+	<tr><td class="code">207</td><td>Multi-Status</td><td>（WebDAV）你问了我10个问题，我挨个回答，但答案状态不一定相同哦（比如，8个成功，1个没权限，还有一个压根不存在）</td></tr>
+	<tr><td class="code">208</td><td>Already Reported</td><td>（WebDAV）（统计）刚有人问过这个成员了！不需要再统计了！</td></tr>
+	<tr><td class="code">226</td><td>IM Used</td><td>（小众，齐喜也不会）</td></tr>
+
+	<!-- 3xx 重定向 -->
+	<tr><td class="code">300</td><td>Multiple Choices</td><td>你要找的东西中文英文韩文都有，选哪个？</td></tr>
+	<tr><td class="code">301</td><td>Moved Permanently</td><td>搬走了！去新地方找</td></tr>
+	<tr><td class="code">302</td><td>Found</td><td>这里水管漏了，你去隔壁凑合几天，过后再回来用！</td></tr>
+	<tr><td class="code">303</td><td>See Other</td><td>你的请求处理完了，但结果在十万八千里外，你坐高铁去取吧！</td></tr>
+	<tr><td class="code">304</td><td>Not Modified</td><td>你的浏览器缓存新鲜着呢，不用再下载一边</td></tr>
+	<tr><td class="code">305</td><td>Use Proxy</td><td>（已弃用）别直接连我，去找代理XXX（容易引发钓鱼，不安全）</td></tr>
+	<tr><td class="code">306</td><td>（已弃用）</td><td>（已弃用）</td></tr>
+	<tr><td class="code">307</td><td>Temporary Redirect</td><td>这里水管漏了，你去隔壁凑合几天，但你该怎么请求还怎么请求！（POST依旧POST不能变GET！）</td></tr>
+	<tr><td class="code">308</td><td>Permanent Redirect</td><td>搬走了，去新地方找——请求的方式方法也不能变！</td></tr>
+
+	<!-- 4xx 客户端错误 -->
+	<tr><td class="code">400</td><td>Bad Request</td><td>我让你填姓名你给我填个出师表啥意思啊😅</td></tr>
+	<tr><td class="code">401</td><td>Unauthorized</td><td>登录后查看～</td></tr>
+	<tr><td class="code">402</td><td>Payment Required</td><td>需要付款</td></tr>
+	<tr><td class="code">403</td><td>Forbidden</td><td>登录也不行我就不想让你访问😎</td></tr>
+	<tr><td class="code">404</td><td>Not Found</td><td>我们是卖苹果的，我们不卖你要找的二向箔发动机</td></tr>
+	<tr><td class="code">405</td><td>Method Not Allowed</td><td>你要用GET来删数据？</td></tr>
+	<tr><td class="code">406</td><td>Not Acceptable</td><td>你要DOCX，但我只会生产XLSX，去找别人</td></tr>
+	<tr><td class="code">407</td><td>Proxy Authentication Required</td><td>（企业内网）想上网？先告诉代理你是谁！</td></tr>
+	<tr><td class="code">408</td><td>Request Timeout</td><td>超时…我等的花都谢了</td></tr>
+	<tr><td class="code">409</td><td>Conflict</td><td>你和小明只差0.0000001秒几乎同时修改同一个文件我反应不过来冲突了！</td></tr>
+	<tr><td class="code">410</td><td>Gone</td><td>原来有，删除了</td></tr>
+	<tr><td class="code">411</td><td>Length Required</td><td>你不说要我发多少千克的苹果，我怎么发？</td></tr>
+	<tr><td class="code">412</td><td>Precondition Failed</td><td>你说“有红苹果我就买”，但这一筐都是绿苹果，所以我不卖！</td></tr>
+	<tr><td class="code">413</td><td>Payload Too Large</td><td>你塞了两本《史记》过来，太大了塞不下</td></tr>
+	<tr><td class="code">414</td><td>URI Too Long</td><td>看看你的地址栏 URL像天书一样长</td></tr>
+	<tr><td class="code">415</td><td>Unsupported Media Type</td><td>你要上传WEBP？我只吃JPG</td></tr>
+	<tr><td class="code">416</td><td>Range Not Satisfiable</td><td>你要第五句诗，但这首诗一共四句！</td></tr>
+	<tr><td class="code">417</td><td>Expectation Failed</td><td>你要发奇怪文件，让我准备好？拒绝！</td></tr>
+	<tr><td class="code">418</td><td>I'm a teapot</td><td>我是茶壶煮不了咖啡</td></tr>
+	<tr><td class="code">421</td><td>Misdirected Request</td><td>这两家奶茶店是一个人开的，但你拿B店的小票来A店取？单号完全对不上！</td></tr>
+	<tr><td class="code">422</td><td>Unprocessable Entity</td><td>（WebDAV）你填的邮箱域名不存在！改！标签没闭合，改！方程式没配平，改！（比400严格）</td></tr>
+	<tr><td class="code">423</td><td>Locked</td><td>（WebDAV）资源被锁定！你改不了！</td></tr>
+	<tr><td class="code">424</td><td>Failed Dependency</td><td>（WebDAV）你还没算Δ就要塞求根公式？你还没上传就要删除？你还没打开瓶盖就要喝饮料？</td></tr>
+	<tr><td class="code">425</td><td>Too Early</td><td>诶！你看都没看就重试了</td></tr>
+	<tr><td class="code">426</td><td>Upgrade Required</td><td>升级到更安全的HTTPS以继续～</td></tr>
+	<tr><td class="code">428</td><td>Precondition Required</td><td>需要前提条件a≠0 不是！说错了，是必须用If-Match</td></tr>
+	<tr><td class="code">429</td><td>Too Many Requests</td><td>服务器繁忙，请稍后再试。</td></tr>
+	<tr><td class="code">431</td><td>Request Header Fields Too Large</td><td>你Cookie/请求头里塞了四本《史记》…</td></tr>
+	<tr><td class="code">444</td><td>No Response</td><td>你长得像个爬虫。不管你怎么响应我要悄无声息把你关掉！</td></tr>
+	<tr><td class="code">451</td><td>Unavailable For Legal Reasons</td><td>啊政府要求屏蔽内容</td></tr>
+	<tr><td class="code">499</td><td>Client Closed Request</td><td>1. 还没加载完就退出了<br>2. 爬虫爬一半被杀掉了👀</td></tr>
+
+	<!-- 5xx 服务器错误 -->
+	<tr><td class="code">500</td><td>Internal Server Error</td><td>服务器错误！为啥错误我也不知道！</td></tr>
+	<tr><td class="code">501</td><td>Not Implemented</td><td>你要的功能我还没写～</td></tr>
+	<tr><td class="code">502</td><td>Bad Gateway</td><td>我（网站）上游的好兄弟挂了，我收不到任何信息！</td></tr>
+	<tr><td class="code">503</td><td>Service Unavailable</td><td>地铁洗车呢，明天再来坐</td></tr>
+	<tr><td class="code">504</td><td>Gateway Timeout</td><td>上游那家伙在那好好呆着呢，但就是没回话…我先撤了！</td></tr>
+	<tr><td class="code">505</td><td>HTTP Version Not Supported</td><td>您太高级了，我们的智障服务器听不懂HTTP/3…</td></tr>
+	<tr><td class="code">506</td><td>Variant Also Negotiates</td><td>服务器左右脑互博了！</td></tr>
+	<tr><td class="code">507</td><td>Insufficient Storage</td><td>（WebDAV）硬盘满了！存不下你要保存的</td></tr>
+	<tr><td class="code">508</td><td>Loop Detected</td><td>（WebDAV）服务器死循环</td></tr>
+	<tr><td class="code">510</td><td>Not Extended</td><td>你需要先装个扩展才能继续</td></tr>
+	<tr><td class="code">511</td><td>Network Authentication Required</td><td>请输入房间号认证后使用酒店WiFi</td></tr>
+  </tbody>
+</table>
+</main>
+</body>
+</html>
