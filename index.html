@@ -24,31 +24,6 @@
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./style.css">
-  <script>
-// 检测是否同意了呵呵啊哈哈哈哈的协议
-	function acceptAgreement() {
-	  // 同意协议：隐藏弹窗
-	  document.getElementById('agreementModal').style.display = 'none';
-	  // 记录到 localStorage，避免下次再弹
-	  localStorage.setItem('userAgreed', 'true');
-	}
-
-	function declineAgreement() {
-	  // 拒绝协议：立即发生爆炸
-	  if (confirm("拒绝协议将无法使用本服务，是否退出？\n请放心，我们会依照相关法律严格保护您的个人信息，不会外泄。")) {
-		window.history.back();
-	  }
-	}
-
-	// 检查用户是否已经同意过，避免重复轰炸Utw
-	window.onload = function() {
-	  const hasAgreed = localStorage.getItem('userAgreed');
-	  if (hasAgreed === 'true') {
-		document.getElementById('agreementModal').style.display = 'none';
-	  }
-	  // 否则保持显示（默认显示）
-	};
-  </script>
  </head>
  <body>
  <!-- 我是一个悲伤的曼波 -->
@@ -81,62 +56,200 @@
  </script>
  </noscript>
   <span style="position: absolute !important;  width: 1px !important;  height: 1px !important;  padding: 0 !important;  margin: -1px !important;  overflow: hidden !important;  clip: rect(0,0,0,0) !important;  white-space: nowrap !important;  border: 0 !important;">这里有一行隐藏的文本</span> <!-- 用户协议弹窗 -->
-  <div class="agreement-overlay" id="agreementModal">
-   <div class="agreement-modal">
-	<div class="agreement-header">使用说明</div>
-	<div class="agreement-body" style="display: inline-block; text-decoration: none; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
-	 <!-- 协议文本 -->
-	 <p>欢迎来到齐喜的网站，请先阅读我们的使用说明、用户协议与条款后使用本网站。</p>
-	 <p>我们使用html标签来表明重点内容，以提醒您关注。如果您在阅读时发现了形如<code>&lt;strong&gt;</code>的内容，请将这些字母符号忽略。</p>
-	 <br>
-	 <h2>使用说明与用户协议</h2>
-	 <h3 style="display: none"></h3>
-	 <h4>仅对于本网站有效。</h4>
-	 <br>
-	 <p>这是一个静态和动态并存的网站。采用MIT许可证，遵守它您就可以随意看（分享）源代码。我们的网址：<a href="https://nb-qx.top/">https://nb-qx.top/</a>。由Github托管，Netlify部署。</p>
-	 <p><strong>主页</strong>展示一些公告，不定期更新</p>
-	 <p><a href='/product'><strong>产品中心</strong></a>展示我们的虚拟产品。</p>
-	 <p>产品中心为部分虚拟产品提供<strong>图片、体验链接、下载链接</strong>和<strong>视频链接</strong>。如果图片显示异常可尝试关闭广告过滤（Ad blocker）</p>
-	 <p></p>
-	 <p>体验链接可以体验虚拟产品一分钟（这不是齐喜手动设置的）。如需长时间体验请选择<strong>下载</strong>或者<strong>使用微信小程序</strong>。有关NOBOOK的使用、分享 请参阅 <a href="https://help.nobook.com/share/26fe5145-dbc4-4722-9de4-5973c378381c" target="_blank" rel="noopener noreferrer"><b>产品帮助手册</b></a>。</p>
-	 <p>使用小程序时可能需要先<strong>登录</strong>。相关协议与本网站无关。您在本网站外（包括其它网站、小程序等）的一切行为与本网站无关。</p>
-	 <p>选择下载会跳转到123网盘。您下载<code>.nbc</code>文件后需手动在<a href="https://hx.nobook.com/" target="_blank" rel="noopener noreferrer">网页版NOBOOK化学虚拟实验</a>中导入。</p>
-	 <p>兑换码功能不断研发中。我们使用<code>SHA-256</code>来验证兑换码是否正确。<strong>这不具有商业、赌博等性质</strong>，或者说<strong>仅供娱乐</strong>。</p>
-	 <p>您使用<a href='https://45d.cn/' target="_blank" rel="noopener noreferrer">45d.cn</a>或类似工具生成短链跳转至本网站任何页面时需经过齐喜的同意，否则视为不友善行为。</p>
-	 <p><strong style="color: red;">虚拟产品仅在NOBOOK内提供，请不要在现实中制作、模仿！，这很可能造成人身危险！</strong></p>
-	 <p>天气信息来源于<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>开源项目。所设的目标是随机的，并不指代某位UP主的具体住址。</p>
-	 <p><b>这不是网络游戏。但也请合理安排时间使用。</b>
+<div class="agreement-overlay" id="agreementModal">
+  <div class="agreement-modal">
+	<div class="agreement-header">使用说明与用户协议</div>
+	<div class="agreement-body">
+	  
+	  <!-- 版本信息 -->
+	  <p class="version-info" style="color: #888; font-size: 0.9em; margin-bottom: 20px;">
+		版本：v0.2.21 | 更新日期：2026-03-28 | 
+		<a href="https://github.com/lemon-nailscrubber/lemon-qx" target="_blank" rel="noopener noreferrer">GitHub 仓库</a>
+	  </p>
+
+	  <!-- 欢迎语 -->
+	  <p>欢迎来到齐喜的网站，请先阅读以下使用说明、用户协议与隐私条款后使用本网站。</p>
+	  <p>我们使用 HTML 标签来表明重点内容。如果您在阅读时发现了形如 <code>&lt;strong&gt;</code> 的标记，请将其理解为视觉强调。</p>
+
 	  <br>
-	  💡<strong>提示：您可能不会得到访问本站某些子目录网页的权限，或者无法访问。</strong>
-	  <br></p>
-	 <p style="color: orange;"><strong><strong>提示：本网站UI页面仅适配移动端，桌面端访问可能会有显示异常！</strong></strong></p>
-	 <p>
+	  <h2>一、开源协议</h2>
+	  <p>
+		本网站源代码采用 <strong>MIT</strong> 开源协议发布。
+		您可以自由查看、使用、修改和分发源代码，但需保留原始版权声明。
+		<a href="https://github.com/lemon-nailscrubber/lemon-qx/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">查看完整协议文本</a>。
+	  </p>
+	  <p>本站托管于 GitHub，由 Netlify 部署，认准网址 <a href="https://nb-qx.top/">nb-qx.top</a>。<small>（近期发现对应.com网站是不良网站）</small></p>
+
 	  <br>
-	 </p>
-	 <p><strong>您承诺您已知晓本站的娱乐性性质。</strong></p>
-	 <p><strong>您承诺您不会模仿虚拟产品的行为。</strong></p>
-	 <p><strong>您承诺您已知晓齐喜不对外部链接的内容作任何保证。</strong></p>
-	 <p><strong>您承诺您在履行条约的同时遵守中华人民共和国的法律。</strong></p>
-	 <p><strong>您需承诺以上条约，否则不能使用我们的网站。</strong></p>
-	 <p><strong>部分内容由AI生成，仅供娱乐，不具有代表性。</strong></p>
-	 <p>点击"我同意"自动视为您已承诺。</p>
-	 <br>
-	 <h2>隐私条款</h2>
-	 <p>使用本网站需要明确：系统会自动收集您的设备<b>唯一标识符、所在国家/地区（粗略位置)、系统版本、浏览器（或内核）版本、访问时间、状态</b>等信息。这些请求符合相关法律规定，我们不会以此进行买卖、交易、泄露等，请您放心。
+	  <h2>二、功能与服务</h2>
+	  
+	  <h3>2.1 产品中心</h3>
+	  <p>
+		<a href='/product'><strong>产品中心</strong></a> 展示虚拟化学产品，提供：
+		<strong>图片、体验链接、下载链接</strong> 和 <strong>视频链接</strong>。
+	  </p>
+	  <p>
+		体验链接可试用虚拟产品一分钟（非手动设置）。如需长时间使用，请选择 <strong>下载</strong> 
+		或使用微信小程序。有关 NOBOOK 的使用与分享，请参阅 
+		<a href="https://help.nobook.com/share/26fe5145-dbc4-4722-9de4-5973c378381c" target="_blank" rel="noopener noreferrer"><b>产品帮助手册</b></a>。
+	  </p>
+	  <p>
+		下载将跳转至 123 网盘。获取 <code>.nbc</code> 文件后，需在 
+		<a href="https://hx.nobook.com/" target="_blank" rel="noopener noreferrer">网页版 NOBOOK 化学虚拟实验</a> 
+		中手动导入。
+	  </p>
+
+	  <h3>2.2 兑换码功能</h3>
+	  <p>
+		兑换码功能持续研发中。我们使用 <code>SHA-256</code> 算法验证兑换码有效性。
+		<strong>此功能不具有商业、赌博等性质，仅供娱乐。</strong>
+	  </p>
+
+	  <h3>2.3 天气服务</h3>
+	  <p>
+		天气信息来源于 <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> 
+		开源项目。所设目标位置为随机生成，不指代任何真实个人住址。
+	  </p>
+
+	  <h3>2.4 评论与互动</h3>
+	  <p>本网站提供以下评论方式：</p>
+	  <ul>
+		<li>
+		  <strong>Giscus 评论：</strong>基于 GitHub Discussions，需遵守 
+		  <a href="https://docs.github.com/zh/site-policy/github-terms/github-terms-of-service" target="_blank" rel="noopener noreferrer">GitHub 服务条款</a>。
+		  评论数据存储于 GitHub 平台。
+		</li>
+		<li>
+		  <strong>表单评论：</strong>通过 Netlify Forms 提交，需经人工审核后展示。
+		  请勿提交敏感个人信息。
+		</li>
+	  </ul>
+	  <p>
+		您承诺评论内容<strong>不包含</strong>：违法信息、人身攻击、广告 spam、冒充他人。
+		<strong>IP 地址</strong>将被记录用于反 spam，不对第三方公开。
+	  </p>
+
 	  <br>
-	  收集到的信息仅会用于分析统计、防刷，用于改进我们的网站。
+	  <h2>三、重要安全警告</h2>
+	  <div style="background: #ffebee; padding: 15px; border-left: 4px solid #c62828; border-radius: 4px; margin: 15px 0;">
+		<p style="margin: 0; color: #c62828; font-weight: bold;">
+		  ⚠️ 虚拟产品仅在 NOBOOK 平台内运行
+		</p>
+		<p style="margin: 8px 0 0 0; color: #333;">
+		  所有"洗钉机"、"洗钉液"、"镀铜水"等产品均为<strong>虚拟化学实验</strong>。
+		  <br>
+		  <strong>严禁在现实中复刻、制作、购买原料尝试！</strong>
+		  化学实验需在专业指导下于安全场所进行，否则可能造成严重人身危险！
+		</p>
+	  </div>
+
 	  <br>
-	  我们的网站面向全世界各类人群（爬虫除外）。但不会收集<b>14岁</b>以下人群（即儿童）的个人信息，如果您是14岁以下的用户，请不要使用表单功能，或在监护人陪同下考虑匿名使用。
-	  <br></p>
-	 <p><strong>如本协议有改动，通常会再次弹出本窗口，您也需要再次阅读并选择是否使用。</strong></p>
-	 <br>
+	  <h2>四、隐私条款与数据收集</h2>
+	  
+	  <h3>4.1 收集的信息类型</h3>
+	  <table style="width:100%; border-collapse: collapse; margin: 10px 0; font-size: 0.95em;">
+		<tr>
+		  <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">信息类型</th>
+		  <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">用途</th>
+		  <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">存储位置</th>
+		</tr>
+		<tr>
+		  <td style="padding: 10px; border: 1px solid #ddd;">设备唯一标识符</td>
+		  <td style="padding: 10px; border: 1px solid #ddd;">访问统计、防刷</td>
+		  <td style="padding: 10px; border: 1px solid #ddd;">Vercount / Cloudflare</td>
+		</tr>
+		<tr>
+		  <td style="padding: 10px; border: 1px solid #ddd;">粗略位置（国家/地区）</td>
+		  <td style="padding: 10px; border: 1px solid #ddd;">天气服务、区域分析</td>
+		  <td style="padding: 10px; border: 1px solid #ddd;">Open-Meteo / 本地缓存</td>
+		</tr>
+		<tr>
+		  <td style="padding: 10px; border: 1px solid #ddd;">系统与浏览器版本</td>
+		  <td style="padding: 10px; border: 1px solid #ddd;">兼容性优化</td>
+		  <td style="padding: 10px; border: 1px solid #ddd;">Cloudflare Insights</td>
+		</tr>
+		<tr>
+		  <td style="padding: 10px; border: 1px solid #ddd;">访问时间与状态</td>
+		  <td style="padding: 10px; border: 1px solid #ddd;">网站改进分析</td>
+		  <td style="padding: 10px; border: 1px solid #ddd;">Netlify / Cloudflare</td>
+		</tr>
+		<tr>
+		  <td style="padding: 10px; border: 1px solid #ddd;">评论内容（如提交）</td>
+		  <td style="padding: 10px; border: 1px solid #ddd;">展示与互动</td>
+		  <td style="padding: 10px; border: 1px solid #ddd;">GitHub Discussions / Netlify</td>
+		</tr>
+	  </table>
+	  <p style="font-size: 0.9em; color: #666;">
+		<em>注：v2.0.0 版本将引入数据库存储，届时本条款将更新以反映变化。</em>
+	  </p>
+
+	  <h3>4.2 数据使用原则</h3>
+	  <ul>
+		<li>收集的数据仅用于<strong>分析统计、防刷、网站改进</strong></li>
+		<li>不会进行买卖、交易或向第三方泄露</li>
+		<li>符合《中华人民共和国个人信息保护法》等相关法律规定</li>
+	  </ul>
+
+	  <h3>4.3 儿童隐私保护</h3>
+	  <p>
+		本网站面向全世界各类人群（爬虫除外）。
+		<strong>不会主动收集 14 岁以下儿童的个人信息。</strong>
+		如您未满 14 岁，请在监护人陪同下使用，并避免使用表单评论功能。
+	  </p>
+
+	  <br>
+	  <h2>五、使用限制</h2>
+	  
+	  <h3>5.1 短链接限制</h3>
+	  <p>
+	  为避免纠纷，未经齐喜允许，禁止使用短链接生成平台生成跳转至我们网站的短链（如，45d.cn）
+	  </p>
+
+	  <h3>5.2 外部链接声明</h3>
+	  <p>
+		您在本网站外（包括其他网站、小程序、下载的文件等）的一切行为与本网站无关。
+		齐喜不对外部链接的内容做任何保证。
+	  </p>
+
+	  <h3>5.3 设备适配</h3>
+	  <p style="color: #e65100; font-weight: bold;">
+		提示：本网站 UI 页面主要适配移动端，桌面端访问可能存在显示异常。
+	  </p>
+	  <p>
+		<strong>这不是网络游戏，但请合理安排使用时间。</strong>
+		您可能不会得到访问某些子目录网页的权限，或可能遇到访问限制。
+	  </p>
+
+	  <br>
+	  <h2>六、用户承诺</h2>
+	  <p>点击"我同意"即代表您承诺：</p>
+	  <ul>
+		<li><strong>已知晓本站的娱乐性质</strong>，不将其作为专业指导依据</li>
+		<li><strong>不会模仿虚拟产品的危险行为</strong>，不在现实中尝试复刻</li>
+		<li><strong>理解外部链接内容由第三方负责</strong>，与本站无关</li>
+		<li><strong>遵守中华人民共和国法律</strong>及您所在地区的适用法律</li>
+		<li><strong>如使用评论功能，内容遵守社区规范</strong>，不发布违法信息</li>
+		<li><strong>知晓部分内容由 AI 生成</strong>，仅供娱乐，不具有代表性</li>
+	  </ul>
+
+	  <h3>协议更新</h3>
+	  <p>
+		如本协议有改动，通常会再次弹出本窗口，您需要再次阅读并选择是否继续使用。
+		继续使用视为接受新条款。
+	  </p>
+
+	  <br>
+	  <p style="text-align: center; color: #888; font-size: 0.9em;">
+		— 感谢您的理解与支持 —
+	  </p>
 	</div>
+
 	<div class="agreement-footer">
-	 <button class="agreement-btn btn-agree" onclick="acceptAgreement()">我同意</button>
-	 <button class="agreement-btn btn-decline" onclick="declineAgreement()">我拒绝</button>
+	  <button class="agreement-btn btn-agree" onclick="acceptAgreement()">我同意</button>
+	  <button class="agreement-btn btn-decline" onclick="declineAgreement()">我拒绝</button>
 	</div>
-   </div>
   </div>
+</div>
   <script>
 // 检测是否同意了呵呵啊哈哈哈哈的协议
 	function acceptAgreement() {
@@ -248,7 +361,7 @@
 </span>
    <p><small>*.nobook.com 为 北京乐步教育科技有限公司 的网址。</small></p>
    <p><small>123网盘提供下载支持</small></p>
-   <p><small>版本 v0.2.21</small></p>
+   <p><small>版本 v0.2.22</small></p>
   </footer>
  </body>
 </html>
