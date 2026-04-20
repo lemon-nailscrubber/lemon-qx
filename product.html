@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN" translate="no">
  <head>
   <meta charset="UTF-8">
@@ -67,6 +67,21 @@
   color: #6a1b9a;
 }
 </style>
+<script>
+// 立夏大促随机跳转功能
+function handleSummerPromo(event, combinedUrl, originalUrl) {
+	// 30% 概率跳转到联合实验页面
+	if (Math.random() < 0.3) {
+		event.preventDefault();
+		// 显示促销提示
+		alert("🎉 立夏大促！赠一小瓶防火液");
+		window.open(combinedUrl, '_blank');
+	} else {
+		event.preventDefault();
+		window.open(originalUrl, '_blank');
+	}
+}
+</script>
  </head>
  <body>
   <!-- 页面头部 -->
@@ -402,16 +417,27 @@
 	  <h3>废液处理装置</h3>
 	  <p>利用NB实验室的逆天特性，可以迅速处理掉大量废液。废液会直接消失掉，不会污染环境。</p>
 	  <p>别放固体就行。</p>
-	  <a href='https://s.nobook.com/?id=250136' rel='noopener noreferrer' target='_blank'>点击可以体验</a> <a href="https://www.123865.com/s/uxYEvd-fVWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
+	  <a href='https://s.nobook.com/?id=250136' 
+		   rel='noopener noreferrer' 
+		   target='_blank'
+		   onclick="handleSummerPromo(event, 'https://s.nobook.com/index.html?id=338178', 'https://s.nobook.com/?id=250136')">
+		   点击可以体验
+	  </a> 
+	  <a href="https://www.123865.com/s/uxYEvd-fVWsH" target="_blank" rel="noopener noreferrer">点击可以下载</a>
 	 </div>
 	</div>
 	<div class="product">
-	 <img loading="lazy" src="./pic/fyclq2.jpg" alt="废液处理器2代">
-	 <div class="product-info">
-	  <h3>废液处理装置二代</h3>
+	 <img loading="lazy" src="./pic/feiyechuliqi.jpg" alt="废液处理器">
+	 <div class="product-info" data-tag="HSF">
+	  <h3>废液处理装置</h3>
 	  <p>利用NB实验室的逆天特性，可以迅速处理掉大量废液。废液会直接消失掉，不会污染环境。</p>
 	  <p>别放固体就行。</p>
-	  <a href='https://s.nobook.com/?id=259512' rel='noopener noreferrer' target='_blank'>点击可以体验</a>
+	  <a href='https://s.nobook.com/?id=250136' 
+		   rel='noopener noreferrer' 
+		   target='_blank'
+		   onclick="handleSummerPromo(event, 'https://s.nobook.com/index.html?id=338182', 'https://s.nobook.com/?id=250136')">
+		   点击可以体验
+	  </a>
 	 </div>
 	</div>
 	<!-- 物理 -->
